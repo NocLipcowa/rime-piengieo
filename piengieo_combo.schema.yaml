@@ -1,0 +1,228 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: piengieo_combo
+  name: 平遙話晉拼（並擊）
+  version: '0.1'
+  author:
+    - Skanda
+  description: |
+    並擊輸入平遙話城關音，並以晉拼方案顯示。
+    參考 宮保拼音 創作。
+
+    佈局如下：
+    --------------------------------------
+    指法   左4 左3 左2 左2  右2 右2 右3 右4
+    --------------------------------------
+    上排   ts   l  d   t       u  -i   o
+    中排    s   h  g*  k       i*  q   e
+    下排   ds   r  b   p   er  y  -u   o'
+    拇指                   a*
+    --------------------------------------
+    指法                  右1
+    --------------------------------------
+    標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
+    本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
+    o' 是 o 的活用鍵位。
+    組合鍵：
+    ** 組合聲母
+    r+b = ⟨m⟩, l+d = ⟨n⟩, h+g = ⟨r⟩,
+    ds+r = ⟨dr⟩, ts+l = ⟨tr⟩, s+h = ⟨sr⟩,
+    ds+r+b = ⟨z⟩, s+h+g = ⟨nr⟩, ts+l+d = ⟨nz⟩,
+    ** 組合韻母及活用，括弧內爲活用組合
+    a-u = ⟨eo⟩, i+a-u = ⟨ieo⟩,
+    -i+o = ⟨ei⟩, u-i = ⟨uei⟩,
+    a-i = ⟨ae⟩, u+a-i = ⟨uae⟩,
+    o'-u = ⟨ou⟩, y-u = ⟨iou⟩,
+    a+q+e = ⟨an⟩, a+i+q+e = ⟨ian⟩, a+u-i+o = ⟨uan⟩,
+    q+e = ⟨eng⟩, i+q+e = ⟨ieng⟩, u-i+o = ⟨ueng⟩, y-u+o' = ⟨yeng⟩
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - chord_composer  # 實現並擊按鍵處理
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+chord_composer:
+  # 字母表，包含用於並擊的按鍵
+  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
+  alphabet: 'aqzswxdecfrvgtbhynjum ki,lo.p'
+  # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
+  algebra:
+    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
+    - 'xlit|aqzswxdecfrvgtbhynjum ki,lo.p|XXXscZhlrgdbktpXXRiuyaqIUeoOX|'
+    # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
+    # 單擊時發送標點符號
+    - xform/^U$/,/
+    - xform/^O$/./
+    # 空格鍵單擊時產生空白
+    - 'xform/^a$/ /'
+    # 特例：以組合鍵[ae]輸入拼音⟨a⟩
+    - xform/^ae$/a/
+    # ⟨er⟩自成音節
+    - xform/^R$/er/
+    # 消除無效按鍵
+    - xform/[XR]+//
+    # 組合聲母
+    - xform/^Zrb/z/
+    - xform/^cld/nz/
+    - xform/^shg/nr/
+    - xform/^Zr/dr/
+    - xform/^cl/tr/
+    - xform/^sh/sr/
+    - xform/^rb/m/
+    - xform/^ld/n/
+    - xform/^hg/ng/
+    # 將 Z,c 改爲晉拼格式  ⟨ds, ts⟩
+    - xform/^Z/ds/
+    - xform/^c/ts/
+    # g/ds,k/ts,h/s 接 i/y 時作 ⟨ji/jy, ci/cy, hsi/hsy⟩，但 g,k 接 ie 時不作改變
+    - xform/^(g[iI](?!e$)|dsi)/ji/
+    - xform/^(k[iI](?!e$)|tsi)/ci/
+    - xform/^(g|(ds))y/jy/
+    - xform/^(k|(ts))y/cy/
+    - xform/^[hs]([iy])/hs$1/
+    # ds,ts,s,nz,z 接 u 時，韻母顯示爲 uz，同時兼容翹舌聲母
+    - xform/^([dt]?s|n?z)u$/$1uz/
+    - xform/^([dt])ru$/$1suz/
+    - xform/^sru$/suz/
+    - xform/^(n?)ru$/$1zuz/
+    # 上排三鍵並擊 ⟨uan, ueng⟩
+    - xform/(ua?)Io$/$1qe/
+    # 下排三鍵並擊 ⟨yeng⟩
+    - xform/yUO$/yqe/
+    # 正確顯示 ⟨an, eng⟩
+    - xform/aqe$/an/
+    - xform/([iuy]?)qe$/$1eng/
+    # ⟨ou, iou⟩
+    - xform/UO$/ou/
+    - xform/yU$/iou/
+    # ⟨eo, ieo⟩
+    - xform/(i?)aU/$1eo/
+    # ⟨ae, uae⟩
+    - xform/(u?a)I$/$1e/
+    # ⟨ei, uei⟩
+    - xform/Io$/ei/
+    - xform/uI$/uei/
+    # 聲母獨用時補足隠含的韻母
+    # ⟨beo, peo, meo⟩
+    - xform/^([bpm])$/$1eo/
+    # ⟨daq, taq, naq, laq, gaq, kaq, haq, ngaq, raq, nraq⟩
+    - xform/^([dtnlgkhr])$/$1aq/
+    - xform/^(n[gr])$/$1aq/
+    # ⟨driz, triz, sriz, dsiz, tsiz, siz, ziz, nziz⟩，舌尖元音無須按鍵，尤其 ds,ts,s 不得與 i 鍵並擊
+    - xform/^([dts]r)[iI]?$/$1iz/
+    - xform/^([dt]?s)I?$/$1iz/
+    - xform/^(n?z)[iI]?$/$1iz/
+    # n 與 e 相拼時，只輸出聲母
+    - xform/^ne$/n/
+    # 將 o' 鍵變回 ⟨o⟩
+    - xform/O/o/
+    # -i 鍵亦可用作韻母 ⟨i⟩
+    - xform/I/i/
+    # 聲母 ⟨z⟩ 同 ⟨r⟩ 可以混用
+    - xform/^z(a[nq]?$|eo?$|eng$)/r$1/
+    - xform/^r(iz$|u[oz]$|uei$|ua[nq]$|ueng$)/z$1/
+  # 並擊完成後套用的式樣
+  output_format:
+    # 追加隔音符號
+    - "xform/^(b)([iua]|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
+    - "xform/^([pm])([iua]|ia|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
+    - "xform/^([dt])([iua]|i?eo|uo|ie|u?ae|u?ei|i?ou|u?an|u?eng|[iu]?aq)$/$1$2'/"
+    - "xform/^(n)([iay]|[iu]?a|i?eo|uo|[iay]e|u?ei|i?ou|[iu]?an|i?eng|[iy]?aq)$/$1$2'/"
+    - "xform/^(l)([ia]|[iu]?a|i?eo|uo|[iy]e|u?ae|u?ei|i?ou|[iu]?an|[iu]?eng|[iuy]?aq)$/$1$2'/"
+    - "xform/^([gk])([ua]|ua|[eu]o|ie|u?ae|uei|ou|u?an|u?eng|u?aq)$/$1$2'/"
+    - "xform/^(h)([ua]|ua|[eu]o|u?ae|u?ei|ou|u?an|u?eng|u?aq)$/$1$2'/"
+    - "xform/^(ng)(a|eo|[ia]e|ou|an|eng|aq)$/$1$2'/"
+    - "xform/^([dts]r)(iz|[ae]|eo|ou|an|eng|aq)$/$1$2'/"
+    - "xform/^(r)(a|e|ou|an|eng|aq)$/$1$2'/"
+    - "xform/^(nr)(a|ou|an|aq)$/$1$2'/"
+    - "xform/^([jc]|hs)([iy]|[iy]a|ieo|yo|[iy]e|iou|ian|[iy]eng|[iy]aq)$/$1$2'/"
+    - "xform/^([dt]?s)([iu]z|u?a|[eu]o|u?ae|u?ei|ou|u?an|u?eng|u?aq)$/$1$2'/"
+    - "xform/^(nz)([iu]z|ua|[eu]o|u?an|eng|uaq)$/$1$2'/"
+    - "xform/^(z)([iu]z|uo|uae|uei|ou|uan|ueng|uaq)$/$1$2'/"
+    - "xform/^([iuay]|[iuy]a|i?eo|[uy]o|[iay]e|uae|uei|iou|[iu]?an|[iuy]?eng|[iuy]?aq|er)$/$1'/"
+    - "xform/^(ou)$/ng$1'/"
+    - "xform/^(n)$/$1'/"
+    # 消除不構成合法音節的並擊組合
+    - "erase/^([A-Za-z]+)$/"
+  # 並擊過程中套用的式樣
+  prompt_format:
+    # 加方括弧
+    - 'xform/^(.*)$/[$1]/'
+
+editor:
+  bindings:
+    BackSpace: back_syllable
+
+speller:
+  alphabet: "zyxwvutsrqponmlkjihgfedcba'"
+  initials: "zyxwvutsrqponmlkjihgfedcba"
+  delimiter: " "
+  algebra:
+    # 拼音音節一律後加隔音符號，避免音節切分歧義
+    - "xform/^([a-z]+)$/$1'/"
+
+translator:
+  dictionary: piengieo
+  prism: piengieo_combo
+  preedit_format:
+    - "xform/' /'/"
+
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔輸入漢語拼音反查平遙話晉拼〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
+
+__patch:
+  # 使用八股文語言模型
+  - grammar:/hant?
+  # 用家自選配置
+  - piengieo_combo.custom:/patch?

@@ -1,0 +1,134 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: piengieo
+  name: 平遙話晉拼
+  version: '0.1'
+  author:
+    - Skanda
+  description: |
+    平遙話城關音
+    採用標準晉拼方案
+  dependencies:
+    - luna_pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    # 定製模糊音以儘量符合漢語拼音使用者習慣
+    # 聲母
+    - derive/^([dt])su/$1ru/           # drueng => dsueng, ..
+    - derive/^su/sru/                  # srueng => sueng, ..
+    - derive/^zu/ru/                   # rueng => zueng, ..
+    - derive/^dr/zh/                   # zh => dr
+    - derive/^tr/ch/                   # ch => tr
+    - derive/^sr/sh/                   # sh => sr
+    - derive/^c/q/                     # q => c
+    - derive/^hs/x/                    # x => hs
+    - derive/^hu(.)/f$1/               # feng => hueng, ..
+    # 零聲母
+    - derive/^u(.)/w$1/                # 可以用 w 代替位於音節首位的 u，整體音節 u 除外
+    - derive/^y/yu/                    # 可以用 yu 代替位於音節首位的 y
+    # 韻母
+    - derive/^i$/yi/                   # yi => i
+    - derive/^u$/wu/                   # wu => u
+    - derive/(.)y$/$1v/                # nv => ny, ..
+    - derive/([^nl])y/$1u/             # ju => jy, jua => jya, jue => jye, juo => jyo, ..
+    - derive/([iu])z$/$1/              # i => iz, u => uz
+
+    - derive/ae$/ai/                   # ai => ae
+    - derive/^ieo$/yeo/                # 可以用 yeo 代替整體音節 ieo
+    - derive/eo$/ao/                   # ao => eo
+    - derive/([bpm])eo$/$1o/           # bo => beo, po => peo, ..
+    - derive/(.)uei$/$1ui/             # ui => uei
+    - derive/(.)iou$/$1iu/             # iu => iou
+    - derive/^iou$/you/                # 可以用 you 代替整體音節 iou
+    - derive/(an)$/$1g/                # ang => an
+    - derive/([^iuy])eng$/$1en/         # en => eng, ..
+    - derive/^neng$/nong/              # nong => neng
+    - derive/(.)ieng$/$1in/            # in => ieng
+    - derive/(.)ieng$/$1ing/           # ing => ieng
+    - derive/^ieng$/yin/               # 可以用 yin 代替整體音節 ieng
+    - derive/^ieng$/ying/              # 可以用 ying 代替整體音節 ieng
+    - derive/(.)[yu]eng$/$1un/         # hun => hueng, jun => jyeng, ..
+    - derive/(.)ueng$/$1ong/           # ong => ueng
+    - derive/(.)yeng$/$1iong/          # iong => yeng
+    - derive/([iuy]?)aq$/$1eq/         # beq => baq, kueq => kuaq, ..
+    - derive/([iuy])aq$/$1q/           # biq => biaq, ..
+    - derive/([iuy]?)aq$/$1ah/         # biah => biaq, ..
+    - derive/([iuy]?)aq$/$1eh/         # bieh => biaq, ..
+    - derive/([iuy])aq$/$1h/           # bih => biaq, ..
+    # 簡拼
+    - abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
+    - abbrev/^([dts]r).+$/$1/          # 簡拼（dr, tr, sr）
+    - abbrev/^([zcs]h).+$/$1/          # 簡拼（zh, ch, sh）
+    - abbrev/^([dth]s).+$/$1/          # 簡拼（ds, ts, hs）
+    - abbrev/^(n[grz]).+$/$1/          # 簡拼（ng, nr, nz）
+
+translator:
+  dictionary: piengieo
+
+
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔輸入漢語拼音反查平遙話晉拼〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
+
+__patch:
+  # 使用八股文語言模型
+  - grammar:/hant?
+  # 用家自選配置
+  - piengieo.custom:/patch?

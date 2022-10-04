@@ -1,0 +1,183 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: piengieo_double
+  name: 平遙話晉拼（雙拼）
+  version: '0.1'
+  author:
+    - Skanda
+  description: |
+    雙拼輸入平遙話城關音，並以晉拼方案顯示
+  dependencies:
+    - luna_pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    # 先將 er,nn 替換
+    - xform/^er$/ER/
+    - xform/^n$/EN/
+    # 替換聲母
+    # 參考小鶴拼音，儘量不改動
+    - xform/^dr/V/
+    - xform/^tr/I/
+    - xform/^sr/U/
+    - xform/^ds/Z/
+    - xform/^ts/C/
+    - xform/^c/Q/
+    - xform/^hs/X/
+    # 平遙話特有，可以調整
+    - xform/^ng/F/
+    - xform/^nr/W/
+    - xform/^nz/E/
+    - xform/^z/A/
+    # 對於零聲母，使用 O/W/Y 三鍵分別表示 開齊、合、撮
+    - xform/^([aei].*)$/O$1/
+    - xform/^(u.*)$/W$1/
+    - xform/^(y.*)$/Y$1/
+    # 替換韻母
+    # 參考小鶴拼音，儘量不改動
+    - xform/ia$|ua$/X/
+    - xform/ieo$/N/
+    - xform/eo$/C/
+    - xform/uei$/V/
+    - xform/ei$/W/
+    - xform/ye$/T/
+    - xform/uo$/O/
+    - xform/uae$/K/
+    - xform/ae$/D/
+    - xform/iou$/Q/
+    - xform/ou$/Z/
+    - xform/ian$/M/
+    - xform/uan$/R/
+    - xform/an$/J/
+    - xform/ueng$|yeng$/S/
+    - xform/ieng$/B/
+    - xform/eng$/G/
+    # 平遙話特有，可以調整
+    - xform/y$/Y/
+    - xform/iz$/I/
+    - xform/uz$/U/
+    - xform/ya$/A/
+    - xform/ie$/P/
+    - xform/yo$/K/
+    - xform/iaq$/E/
+    - xform/uaq$/F/
+    - xform/yaq$/L/
+    - xform/aq$/H/
+    - xlit/QWERTYUIOPASDFGHJKLZXCVBNM/qwertyuiopasdfghjklzxcvbnm/
+
+translator:
+  dictionary: piengieo
+  prism: piengieo_double
+  preedit_format:
+    - xform/er/ER/
+    - xform/en/N/
+    # 雙拼第二碼轉換爲韻母
+    - xform/([jqx])a/$1YA/
+    - xform/([lnjqxobpm])x/$1IA/
+    - xform/(\w)x/$1UA/
+    - xform/(\w)p/$1IE/
+    - xform/(\w)t/$1YE/
+    - xform/(\w)o/$1UO/
+    - xform/([njqxy])k/$1YO/
+    - xform/(\w)d/$1AE/
+    - xform/(\w)k/$1UAE/
+    - xform/(\w)c/$1EO/
+    - xform/(\w)n/$1IEO/
+    - xform/([zcsvuiea])i/$1IZ/
+    - xform/([zcsea])u/$1UZ/
+    - xform/(\w)w/$1EI/
+    - xform/(\w)v/$1UEI/
+    - xform/(\w)z/$1OU/
+    - xform/(\w)q/$1IOU/
+    - xform/(\w)j/$1AN/
+    - xform/(\w)m/$1IAN/
+    - xform/(\w)r/$1UAN/
+    - xform/(\w)g/$1ENG/
+    - xform/(\w)b/$1IENG/
+    - xform/([jqxy])s/$1YENG/
+    - xform/(\w)s/$1UENG/
+    - xform/(\w)h/$1AQ/
+    - xform/([lndtjqxobpm])e/$1IAQ/
+    - xform/(\w)f/$1UAQ/
+    - xform/(\w)l/$1YAQ/
+    # 復原聲母
+    - "xform/(^|[ '])v/$1dr/"
+    - "xform/(^|[ '])i/$1tr/"
+    - "xform/(^|[ '])u/$1sr/"
+    - "xform/(^|[ '])z/$1ds/"
+    - "xform/(^|[ '])c/$1ts/"
+    - "xform/(^|[ '])q/$1c/"
+    - "xform/(^|[ '])x/$1hs/"
+    - "xform/(^|[ '])f/$1ng/"
+    - "xform/(^|[ '])w([^Uu])/$1nr$2/"
+    - "xform/(^|[ '])e/$1nz/"
+    - "xform/(^|[ '])a/$1z/"
+    # 去掉零聲母
+    - "xform/(^|[ '])[owy]/$1/"
+    - xlit/QWERTYUIOPASDFGHJKLZXCVBNM/qwertyuiopasdfghjklzxcvbnm/
+
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔輸入漢語拼音反查平遙話晉拼〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
+
+__patch:
+  # 使用八股文語言模型
+  - grammar:/hant?
+  # 用家自選配置
+  - piengieo_double.custom:/patch?
