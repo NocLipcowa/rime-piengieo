@@ -1,4 +1,4 @@
-# 平遙話晉拼
+# 平遙話
 
 配方： ℞ **NocLipcowa/rime-piengieo**
 

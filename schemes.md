@@ -2,7 +2,7 @@
 
 ## 標準晉拼
 
-採用由[木瓜流磬](https://tieba.baidu.com/home/main?id=tb.1.6e756281.LZUU_-z0zW2zHi2gHM2_qg)設計並維護的[晉語通用拼音方案]()輸入晉語平遙方言。以下僅介紹平遙話城關音的晉拼方案形式。
+採用由[木瓜流磬](https://tieba.baidu.com/home/main?id=tb.1.6e756281.LZUU_-z0zW2zHi2gHM2_qg)設計並維護的[晉語通用拼音方案](https://tieba.baidu.com/p/3050810850)輸入晉語平遙方言。以下僅介紹平遙話城關音的晉拼方案形式。
 
 ### 聲母
 
