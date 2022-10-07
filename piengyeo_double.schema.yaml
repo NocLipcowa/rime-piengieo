@@ -2,13 +2,13 @@
 # encoding: utf-8
 
 schema:
-  schema_id: piengieo_double
-  name: 平遙話晉拼（雙拼）
+  schema_id: piengyeo_double
+  name: 平遙話拼音（雙拼）
   version: '0.2'
   author:
     - Skanda
   description: |
-    雙拼輸入平遙話城關音，並以晉拼方案顯示
+    雙拼輸入平遙話城關音，並以平遙話拼音方案顯示
   dependencies:
     - luna_pinyin
 
@@ -72,10 +72,13 @@ speller:
     - xform/^nr/J/
     - xform/^nz/E/
     - xform/^z/A/
-    # 對於零聲母，使用 O/W/Y 三鍵分別表示 開齊、合、撮
-    - xform/^([aei].*)$/O$1/
-    - xform/^(u.*)$/W$1/
-    - xform/^(y.*)$/Y$1/
+    # 處理零聲母
+    - xform/^([ae].*)$/O$1/
+    - xform/^u$/Wu/                    # wu <= u
+    - xform/^u(.)/W$1/                 # weng <= weng, ..
+    - xform/^y/Yu/                     # yu <= y, yuaq <= yaq, ..
+    - xform/^(i(eng)?)$/Y$1/           # yi <= i, yieng <= ieng
+    - xform/^i(.)/Y$1/                 # yah <= iah, ..
     # 替換韻母
     # 參考小鶴拼音，儘量不改動
     - xform/[iu]a$/X/
@@ -111,15 +114,16 @@ speller:
 translator:
   dictionary: &dict
     piengieo
-  prism: piengieo_double
+  prism: piengyeo_double
   preedit_format:
     - xform/er/ER/
     - xform/en/N/
     # 雙拼第二碼轉換爲韻母
+    - xform/([jqx])d/$1YA/
     - xform/([lnjqxobpm])x/$1IA/
     - xform/(\w)x/$1UA/
-    - xform/([jqx])d/$1YA/
     - xform/(\w)p/$1IE/
+    - xform/yt/YUE/
     - xform/(\w)t/$1YE/
     - xform/(\w)o/$1UO/
     - xform/([njqxy])k/$1YO/
@@ -127,8 +131,6 @@ translator:
     - xform/(\w)k/$1UAE/
     - xform/(\w)c/$1EO/
     - xform/(\w)n/$1IEO/
-    - xform/([zcsvuiea])i/$1IZ/
-    - xform/([zcsea])u/$1UZ/
     - xform/(\w)w/$1EI/
     - xform/(\w)v/$1UEI/
     - xform/(\w)z/$1OU/
@@ -138,26 +140,22 @@ translator:
     - xform/(\w)r/$1UAN/
     - xform/(\w)g/$1ENG/
     - xform/(\w)b/$1IENG/
-    - xform/([jqxy])s/$1YENG/
+    - xform/([jqx])s/$1YENG/
     - xform/(\w)s/$1UENG/
     - xform/(\w)h/$1AQ/
     - xform/([lndtjqxobpm])e/$1IAQ/
     - xform/(\w)f/$1UAQ/
     - xform/(\w)l/$1YAQ/
     # 復原聲母
-    - "xform/(^|[ '])v/$1dr/"
-    - "xform/(^|[ '])i/$1tr/"
-    - "xform/(^|[ '])u/$1sr/"
-    - "xform/(^|[ '])z/$1ds/"
-    - "xform/(^|[ '])c/$1ts/"
-    - "xform/(^|[ '])q/$1c/"
-    - "xform/(^|[ '])x/$1hs/"
+    - "xform/(^|[ '])v/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])u/$1sh/"
     - "xform/(^|[ '])f/$1ng/"
     - "xform/(^|[ '])j([^IiYy])/$1nr$2/"
     - "xform/(^|[ '])e/$1nz/"
-    - "xform/(^|[ '])a/$1z/"
+    - "xform/(^|[ '])a/$1zs/"
     # 去掉零聲母
-    - "xform/(^|[ '])[owy]/$1/"
+    - "xform/(^|[ '])o/$1/"
     - xlit/QWERTYUIOPASDFGHJKLZXCVBNM/qwertyuiopasdfghjklzxcvbnm/
 
 pinyin:
@@ -171,7 +169,7 @@ pinyin:
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
   tips: 〔漢語拼音〕
-  closing_tips: 〔平遙話晉拼（雙拼）〕
+  closing_tips: 〔平遙話拼音（雙拼）〕
 
 pinyin_lookup:
   tag: pinyin_lookup
@@ -179,14 +177,33 @@ pinyin_lookup:
   suffix: ;
   dictionary: luna_pinyin
   preedit_format: *pinyin
-  tips: 〔输入漢語拼音反查平遥话晉拼〕
-  closing_tips: 〔平遙話晉拼（雙拼）〕
+  tips: 〔输入漢語拼音反查平遥话拼音〕
+  closing_tips: 〔平遙話拼音（雙拼）〕
 
 pinyin_reverse_lookup:
   tags: [ pinyin_lookup ]
   dictionary: *dict
   overwrite_comment: true
   comment_format: &comment
+    # 將晉拼方案轉換爲折中方案
+    # 聲母
+    - xform/c/q/                      # q <= c
+    - xform/hs/x/                     # x <= hs
+    - xform/( |^)z/$1zs/              # zs <= z
+    - xform/ds/z/                     # z <= ds
+    - xform/ts/c/                     # c <= ts
+    - xform/dr/zh/                    # zh <= dr
+    - xform/tr/ch/                    # ch <= tr
+    - xform/sr/sh/                    # sh <= sr
+    # 零聲母
+    - xform/( |^)u( |$)/$1wu$2/       # wu <= u
+    - xform/( |^)u([^ ])/$1w$2/       # weng <= weng, ..
+    - xform/( |^)y/$1yu/              # yu <= y, yuaq <= yaq, ..
+    - xform/( |^)(i(eng)?)( |$)/$1y$2$3/ # yi <= i, yieng <= ieng
+    - xform/( |^)i([^ ])/$1y$2/       # yah <= iah, ..
+    # 韻母
+    - xform/([iu])z( |$)/$1$2/        # i <= iz, u <= uz
+
     - xform/$/〕/
     - xform/^/〔/
     - xform/ /、/
@@ -207,4 +224,4 @@ __patch:
   # 使用八股文語言模型
   - grammar:/hant?
   # 用家自選配置
-  - piengieo_double.custom:/patch?
+  - piengyeo_double.custom:/patch?

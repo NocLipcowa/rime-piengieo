@@ -1,6 +1,8 @@
 # Rime dictionary
 # encoding: utf-8
-
+#
+# 平遙話字庫。據 https://github.com/Pieng-Yo-Hua/rime-piengyohua 修改。
+#
 ---
 name: piengieo
 version: "2022.10.04"
@@ -258,7 +260,6 @@ import_tables:
 
 聽	ti
 廳	ti
-停	ti
 
 # li
 離	li
@@ -1122,7 +1123,7 @@ import_tables:
 除	tsuz
 櫥	tsuz
 滁	tsuz
-廚	tsuz
+廚	tsuz	5%
 躕	tsuz
 初	tsuz
 楚	tsuz
@@ -1143,6 +1144,7 @@ import_tables:
 # suz
 鋤	suz
 耡	suz
+杵	suz
 疏	suz
 梳	suz
 蔬	suz
@@ -1171,8 +1173,7 @@ import_tables:
 抒	suz
 紓	suz
 
-順	suz
-杵	suz
+順	suz	0%
 
 # nzuz
 女	nzuz
@@ -1190,10 +1191,11 @@ import_tables:
 乳	zuz
 孺	zuz
 㹘	zuz
+擩	zuz
 
 # y
 # jy
-車	jy
+車	jy	10%
 居	jy
 据	jy
 裾	jy
@@ -1232,6 +1234,8 @@ import_tables:
 陬	jy
 瞿	jy
 
+聚	jy
+
 櫃	jy
 閨	jy
 劇	jy
@@ -1262,7 +1266,7 @@ import_tables:
 蠼	cy
 趨	cy
 取	cy
-娶	cy
+娶	cy	10%
 趣	cy
 
 樗	cy
@@ -1302,6 +1306,7 @@ import_tables:
 荽	hsy
 
 兄	hsy
+諱	hsy	10%
 
 # ny
 魚	ny
@@ -1321,7 +1326,7 @@ import_tables:
 寓	ny
 
 # y
-魚	y
+魚	y	5%
 漁	y
 齬	y
 語	y
@@ -1568,7 +1573,7 @@ import_tables:
 啊	a
 阿	a
 
-家	a	0%
+家	a	10%
 
 # -ia
 
@@ -3212,10 +3217,12 @@ import_tables:
 畎	jye
 罥	jye
 狷	jye
+
 坐	jye
 座	jye
 銼	jye
 挫	jye
+鍋	jye	10%
 
 # qye
 圈	cye
@@ -3266,7 +3273,7 @@ import_tables:
 烜	hsye
 絢	hsye
 眴	hsye
-縣	hsye
+縣	hsye	0%
 玄	hsye
 懸	hsye
 眩	hsye
@@ -3295,7 +3302,6 @@ import_tables:
 練	lye
 臠	lye
 
-
 # ye
 員	ye
 圓	ye
@@ -3305,7 +3311,7 @@ import_tables:
 媛	ye
 援	ye
 瑗	ye
-緣	ye
+緣	ye	10%
 園	ye
 袁	ye
 猿	ye
@@ -3340,6 +3346,8 @@ import_tables:
 唄	bae
 盃	bae
 杯	bae
+裴	bae
+牌	bae	10%
 賠	bae
 焙	bae
 培	bae
@@ -3540,6 +3548,7 @@ import_tables:
 矮	ngae
 隘	ngae
 藹	ngae
+唉	ngae	10%
 
 # dsae
 哉	dsae
@@ -3561,7 +3570,6 @@ import_tables:
 寨	dsae
 砦	dsae
 
-這	dsae
 大	dsae
 
 # tsae
@@ -3583,6 +3591,8 @@ import_tables:
 柴	tsae
 
 揣	tsae
+搋	tsae
+㹗	tsae
 𠞊	tsae
 
 # sae
@@ -3594,7 +3604,10 @@ import_tables:
 籭	sae
 曬	sae
 柴	sae
-灑	sae
+灑	sae	0%
+
+# ae
+唉	ae	90%
 
 # -uae
 # duae
@@ -3625,7 +3638,7 @@ import_tables:
 酹	luae
 
 # guae
-瑰	guae 
+瑰	guae
 憒	guae
 劊	guae
 乖	guae
@@ -3840,7 +3853,7 @@ import_tables:
 
 # -uei
 # duei
-挅	duei
+挆	duei
 砣	duei
 碢	duei
 躲	duei
@@ -4348,7 +4361,7 @@ import_tables:
 湊	tsou
 蔟	tsou
 趣	tsou
-取	tsou
+取	tsou	0%
 輳	tsou
 徂	tsou
 麤	tsou
@@ -5923,7 +5936,7 @@ import_tables:
 贈	dseng
 僧	seng
 
-層	dseng	0%
+層	dseng	10%
 
 砧	dreng
 椹	dreng
@@ -6558,7 +6571,7 @@ import_tables:
 瑩	ieng
 瀅	ieng
 縈	ieng
-塋	ieng
+塋	ieng	5%
 瀠	ieng
 營	ieng
 潁	ieng
@@ -7524,6 +7537,7 @@ import_tables:
 惻	tsaq
 插	tsaq
 鍤	tsaq
+娶	tsaq
 
 # saq
 𢶍	saq
@@ -7786,6 +7800,7 @@ import_tables:
 稷	jiaq
 寂	jiaq
 岌	jiaq
+極	jiaq
 
 # qiaq
 慼	ciaq
@@ -7805,7 +7820,6 @@ import_tables:
 契	ciaq
 乞	ciaq
 迄	ciaq
-契	ciaq
 鍥	ciaq
 挈	ciaq
 咭	ciaq
@@ -8348,6 +8362,7 @@ import_tables:
 # lyaq
 劣	lyaq
 捋	lyaq
+掠	lyaq
 
 # nyaq
 虐	nyaq

@@ -4,7 +4,7 @@
 schema:
   schema_id: piengieo
   name: 平遙話晉拼
-  version: '0.1'
+  version: '0.2'
   author:
     - Skanda
   description: |
@@ -38,15 +38,19 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
+    - affix_segmentor@pinyin
+    - affix_segmentor@pinyin_lookup
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
-    - reverse_lookup_translator
     - script_translator
+    - script_translator@pinyin
+    - script_translator@pinyin_lookup
   filters:
     - simplifier
     - uniquifier
+    - reverse_lookup_filter@pinyin_reverse_lookup
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
@@ -80,21 +84,26 @@ speller:
     - derive/(.)uei$/$1ui/             # ui => uei
     - derive/(.)iou$/$1iu/             # iu => iou
     - derive/^iou$/you/                # 可以用 you 代替整體音節 iou
-    - derive/(an)$/$1g/                # ang => an
-    - derive/([^iuy])eng$/$1en/         # en => eng, ..
+    # 契合漢語拼音的方式輸入 eng
     - derive/^neng$/nong/              # nong => neng
-    - derive/(.)ieng$/$1in/            # in => ieng
     - derive/(.)ieng$/$1ing/           # ing => ieng
     - derive/^ieng$/yin/               # 可以用 yin 代替整體音節 ieng
     - derive/^ieng$/ying/              # 可以用 ying 代替整體音節 ieng
-    - derive/(.)[yu]eng$/$1un/         # hun => hueng, jun => jyeng, ..
     - derive/(.)ueng$/$1ong/           # ong => ueng
     - derive/(.)yeng$/$1iong/          # iong => yeng
+    # 模糊前後鼻音標記 n/ng
+    - derive/(an)$/$1g/                # ang => an
+    - derive/([^iuy])eng$/$1en/        # en => eng, ..
+    - derive/(.)ieng$/$1in/            # in => ieng
+    - derive/(.)[yu]eng$/$1un/         # hun => hueng, jun => jyeng, ..
+    # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq => baq, kueq => kuaq, ..
     - derive/([iuy])aq$/$1q/           # biq => biaq, ..
+    - derive/^iaq$/yiq/                # 可以用 yiq 代替整體音節 iaq
     - derive/([iuy]?)aq$/$1ah/         # biah => biaq, ..
     - derive/([iuy]?)aq$/$1eh/         # bieh => biaq, ..
     - derive/([iuy])aq$/$1h/           # bih => biaq, ..
+    - derive/^iaq$/yih/                # 可以用 yih 代替整體音節 iaq
     # 簡拼
     - abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
     - abbrev/^([dts]r).+$/$1/          # 簡拼（dr, tr, sr）
@@ -103,18 +112,39 @@ speller:
     - abbrev/^(n[grz]).+$/$1/          # 簡拼（ng, nr, nz）
 
 translator:
-  dictionary: piengieo
+  dictionary: &dict
+    piengieo
 
-
-reverse_lookup:
+pinyin:
+  tag: pinyin
   dictionary: luna_pinyin
-  prefix: "`"
-  suffix: "'"
-  tips: 〔輸入漢語拼音反查平遙話晉拼〕
-  preedit_format:
+  prefix: P
+# 漢語拼音輸入以〔大寫〕「P」引導
+  suffix: ;
+  preedit_format: &pinyin
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
+  tips: 〔漢語拼音〕
+  closing_tips: 〔平遙話晉拼〕
+
+pinyin_lookup:
+  tag: pinyin_lookup
+  prefix: "`"
+  suffix: ;
+  dictionary: luna_pinyin
+  preedit_format: *pinyin
+  tips: 〔输入漢語拼音反查平遥话晉拼〕
+  closing_tips: 〔平遙話晉拼〕
+
+pinyin_reverse_lookup:
+  tags: [ pinyin_lookup ]
+  dictionary: *dict
+  overwrite_comment: true
+  comment_format: &comment
+    - xform/$/〕/
+    - xform/^/〔/
+    - xform/ /、/
 
 punctuator:
   import_preset: default
@@ -125,7 +155,8 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    reverse_lookup: "`[a-z]*'?$"
+    pinyin_lookup: "`[a-z]*;?$"
+    pinyin: (?<!`)P[a-z']*;?$
 
 __patch:
   # 使用八股文語言模型

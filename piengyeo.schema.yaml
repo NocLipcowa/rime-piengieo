@@ -2,9 +2,9 @@
 # encoding: utf-8
 
 schema:
-  schema_id: piengieo_pinyin
+  schema_id: piengyeo
   name: 平遙話拼音
-  version: '0.1'
+  version: '0.2'
   author:
     - Skanda
   description: |
@@ -38,15 +38,19 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
+    - affix_segmentor@pinyin
+    - affix_segmentor@pinyin_lookup
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
-    - reverse_lookup_translator
     - script_translator
+    - script_translator@pinyin
+    - script_translator@pinyin_lookup
   filters:
     - simplifier
     - uniquifier
+    - reverse_lookup_filter@pinyin_reverse_lookup
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
@@ -81,7 +85,7 @@ speller:
     - derive/^([jqx])y/$1u/            # ju <=> jy, jua <=> jya, ..
     - derive/ae$/ai/                   # ai <=> ae
     - derive/eo$/ao/                   # ao <=> eo
-    - derive/^([bpm])eo$/$1o/           # bo <=> beo, ..
+    - derive/^([bpm])eo$/$1o/          # bo <=> beo, ..
     - derive/(.)uei$/$1ui/             # ui <=> uei
     - derive/(.)iou$/$1iu/             # iu <=> iou
     # 契合漢語拼音的方式輸入 eng
@@ -92,15 +96,17 @@ speller:
     - derive/(.)yeng$/$1iong/
     # 模糊前後鼻音標記 n/ng
     - derive/(an)$/$1g/                # ang <=> an
-    - derive/([^iuy]?)eng$/$1en/        # nen <=> neng, ..
+    - derive/([^iuy]?)eng$/$1en/       # nen <=> neng, ..
     - derive/(.)ieng$/$1in/            # in <=> ieng
     - derive/(.)[yu]eng$/$1un/         # hun <=> hueng, jun <=> jyeng, ..
     # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq <=> baq, ..
-    - derive/([iuy])aq$/$1q/           # biq <=> biaq, ..
+    - derive/(.[iuy])aq$/$1q/          # biq <=> biaq, ..
     - derive/([iuy]?)aq$/$1ah/         # biah <=> biaq, ..
-    - derive/([iuy]?)aq$/$1eh/         # bieh => biaq, ..
-    - derive/([iuy])aq$/$1h/           # bih => biaq, ..
+    - derive/([iuy]?)aq$/$1eh/         # bieh <=> biaq, ..
+    - derive/(.[iuy])aq$/$1h/          # bih <=> biaq, ..
+    - derive/^yaq$/yiq/                # yih <=> yiq <=> yaq
+    - derive/^yaq$/yih/
     # 簡拼
     - abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
     - abbrev/^([zcs]h).+$/$1/          # 簡拼（zh, ch, sh）
@@ -108,16 +114,17 @@ speller:
     - abbrev/^(zs).+$/$1/              # 簡拼 zs
     # 自動糾正一些常見的按鍵錯誤
     - derive/([aeio])ng$/$1gn/         # degn => deng, ..
-    - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
+    - derive/([dtngkhrzcs])o(u|ng)$/$1o/ # zho => zhong|zhou
     - derive/ong$/on/                  # zhonguo => zhong guo
     - derive/ao$/oa/                   # hoa => hao, ..
     - derive/eo$/oe/                   # heo => heo, ..
-    - derive/i([ae])o$/$1io/             # teio => tieo, ..
+    - derive/i([ae])o$/$1io/           # teio => tieo, ..
     - derive/([iu])e(ng)$/e$1$2/       # teing => tieng, ..
 
 translator:
-  dictionary: piengieo
-  prism: piengieo_pinyin
+  dictionary: &dict
+    piengieo
+  prism: piengyeo
   #preedit_format:
     # 韻母
     #- xform/v/y/
@@ -143,15 +150,55 @@ translator:
     #- xform/ru/zsu/
     #- xform/f/hu/
 
-reverse_lookup:
+pinyin:
+  tag: pinyin
   dictionary: luna_pinyin
-  prefix: "`"
-  suffix: "'"
-  tips: 〔輸入漢語拼音反查平遙話晉拼〕
-  preedit_format:
+  prefix: P
+# 漢語拼音輸入以〔大寫〕「P」引導
+  suffix: ;
+  preedit_format: &pinyin
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
+  tips: 〔漢語拼音〕
+  closing_tips: 〔平遙話拼音〕
+
+pinyin_lookup:
+  tag: pinyin_lookup
+  prefix: "`"
+  suffix: ;
+  dictionary: luna_pinyin
+  preedit_format: *pinyin
+  tips: 〔输入漢語拼音反查平遥话拼音〕
+  closing_tips: 〔平遙話拼音〕
+
+pinyin_reverse_lookup:
+  tags: [ pinyin_lookup ]
+  dictionary: *dict
+  overwrite_comment: true
+  comment_format: &comment
+    # 將晉拼方案轉換爲折中方案
+    # 聲母
+    - xform/c/q/                      # q <= c
+    - xform/hs/x/                     # x <= hs
+    - xform/( |^)z/$1zs/              # zs <= z
+    - xform/ds/z/                     # z <= ds
+    - xform/ts/c/                     # c <= ts
+    - xform/dr/zh/                    # zh <= dr
+    - xform/tr/ch/                    # ch <= tr
+    - xform/sr/sh/                    # sh <= sr
+    # 零聲母
+    - xform/( |^)u( |$)/$1wu$2/       # wu <= u
+    - xform/( |^)u([^ ])/$1w$2/       # weng <= weng, ..
+    - xform/( |^)y/$1yu/              # yu <= y, yuaq <= yaq, ..
+    - xform/( |^)(i(eng)?)( |$)/$1y$2$3/ # yi <= i, yieng <= ieng
+    - xform/( |^)i([^ ])/$1y$2/       # yah <= iah, ..
+    # 韻母
+    - xform/([iu])z( |$)/$1$2/        # i <= iz, u <= uz
+
+    - xform/$/〕/
+    - xform/^/〔/
+    - xform/ /、/
 
 punctuator:
   import_preset: default
@@ -162,10 +209,11 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    reverse_lookup: "`[a-z]*'?$"
+    pinyin_lookup: "`[a-z]*;?$"
+    pinyin: (?<!`)P[a-z']*;?$
 
 __patch:
   # 使用八股文語言模型
   - grammar:/hant?
   # 用家自選配置
-  - piengieo_pinyin.custom:/patch?
+  - piengyeo.custom:/patch?
