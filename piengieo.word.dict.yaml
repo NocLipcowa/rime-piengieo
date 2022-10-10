@@ -3,9 +3,894 @@
 
 ---
 name: piengieo.word
-version: "2022.10.04"
+version: "2022.10.11"
 sort: by_weight
 ...
 
+# 地名
+城闔裏	treng haq lei
+沙巷	sa huo
+井巷	dsei huo
+羅漢廟	lei han mieo
+五道廟	uaq deo mieo
+城南堡	treng nan bu
+二里半
+十九街
+道虎壁
+閻壁村
+干坑	gan qie
+干坑	gan kan
+閻良莊	ie luo dsuo
+西郭村	sei gaq tsueng
+西郭村	sei guaq tsueng
+
+達蒲	daq bu
+三狼	san leo
+魏樂	y laq
+曹村	dseo tsueng
+梁趙	luo dreo
+
+上南頭	suo nan dou
+卜宜	baq ni
+薄泥	baq ni
+坡底	pei di
+梁家灘	luo a tan
+梁家	lua
+梁家灘	lua tan
+永城	y sriz
+青沙	tsei sa
+
+段村
+陳家	dran
+陳家莊	dran dsuo
+細腰
+希堯	sei ieo
+軍寨
+細線子
+常村	suo tsueng
+安社
+東安社
+西安社
+弓村	jyeng tsueng
+堡和	bu huei
+北羌
+姜家	jya
+姜家莊	jya dsuo
+七洞
+
+果子溝	guei dsaq gou
+
+普同	pu dueng
+窯頭	ieo dou
+文祠神	meng si sreng
+趙家	dra
+趙家山	dra san
+橫坡	hsye pei
+
+西村	sei tsueng
+杜家莊	du ua dsuo
+閻長頭	ie dsuo dou
+鹽場頭	ie dsuo dou
+南良莊	nan luo dsuo
+西良莊	sei luo dsuo
+東良莊	dueng luo dsuo
+仁莊 reng dsuo
+回回堡
+
+寧固
+羅顧府	luei gu hu
+左家	jia
+左家堡	jia bu
+油坊堡	iou huo bu
+岳封	miaq hueng
+蘇封
+王郭	uo gaq
+河西	hei sei
+灘頭	dan dou
+張趙	dsuo dreo
+任家堡	ran bu
+任家	ran
+
+淨化	dsei hua
+魚市	ny siz
+蘆村
+王智	uo driz
+
+香樂
+安固
+郝莊	haq dsuo
+陶屯	deo dueng
+趙坦
+云家莊	yeng a dsuo
+
+西王智	sei uo driz
+羌城	cyo sriz
+大羌城	dei cyo sriz
+小羌城
+羅城	lei sriz
+官地
+南官地
+中官地
+北官地
+
+東南堰
+岳壁	miaq biaq
+中街兒
+小城	hsieo sriz
+尹回
+梁村	luo tsueng
+源祠	ye siz
+西源祠	sei ye siz
+東源祠	dueng ye siz
+
+東泉	dueng jye
+木瓜
+趙壁
+坡頭	pei dou
+水磨頭	suei mei dou
+戈山	guei san
+東戈山	dueng guei san
+西戈山	sei guei san
+
+南政	nan driz
+
+辛村
+邢村	hsi tsueng
+黃倉	huo cyo
+大虎嶺	dei hu li
+
+南依澗
+北依澗	baq i jian
+南瀴澗	nan i jian
+北瀴澗	baq i jian
+上店	suo die
+上店子	suo die dsaq
+東崖窯	dueng nie ieo
+
+西崖窯	sei nie ieo
+# 二字
+## AA
+### v.
+晾晾	luo luo
+嘗嘗	suo suo
+歇歇
+### n.
+牀牀	suo suo
+窗窗	suo suo
+凳凳
+杌杌
+繩繩	sriz sriz
+鈴鈴	li li
+盤盤
+碟碟
+碗碗
+匙匙
+拍拍
+顆顆	kuei kuei
+㞘㞘
+核核	kuaq kuaq
+𣝗𣝗
+綻綻
+襻襻
+
+## X人
 綁人	beo reng
+困人
+咬人
+晃人	huo reng
+蜇人
+燒人
+冹人
+拍人
+蔭人
+捩人
+怕人
+氣人
+火人	huei reng
+腷人
+撐人	tseng reng
+飢人
+噎人
+## 圪X
+### v.
+圪繾
+圪搗
+圪塞
+圪擻
+圪搜
+圪離
+圪彈	gaq 
+圪絀
+圪噎
+### n.
+圪蟲
+圪洞
+
+## X開
+解開
+迸開	bie kae
+## X下
+解下
+瞅下
+## X徹
+說徹
+澆徹
+## X煞
 綁煞	beo saq
+荷煞	hei saq
+## X着
+緊着	jieng diaq
+荷着	hei diaq
+## X轉
+荷轉	hei dsuan
+## X成
+喫成	traq sriz
+穿成	tsuan sriz
+走成	dsou sriz
+種成	dsueng sriz
+## X擦
+做擦
+說擦
+拍擦
+抹擦
+## X拍
+疊拍
+扇拍
+苫拍
+捉拍
+吹拍
+## X架
+探架
+喫架
+撐架	tra jia
+炫架
+爬架	ba jia
+## 錯X
+錯寫
+錯荷
+錯說
+錯記
+錯算
+錯刀
+## AB
+### v.
+趕逸	gan iaq
+踢跳
+盯對
+數唸
+數話
+聽說	ti suaq
+寄付
+歇心
+白說
+獨說
+走盞
+跌垮
+疊冷	diaq lia
+修喘	hsiou suan
+整理	driz lei
+翻穿
+薄喫
+戳掣
+覺見
+覺怕
+掇踅
+作踏
+把話
+躲對
+躲閃
+撣打
+眼氣	nian ci
+眼熱
+起火
+活攝
+掐害
+鬧㧡
+㧡鬧
+掐算
+揚砍	yo kan
+揚填	yo die
+混淆
+戳剆
+招護
+跌調	diaq dieo
+坐站	jye dsan
+賠告	bae geo
+把味
+砍槎
+抓鹼
+等當	deng duo
+做造
+希詫	hsi sa
+弾掙	dan dre
+脫舔
+剝舔
+有采
+帶采
+聽曉	ti hsieo
+詛罵
+謅經
+等托
+折搗	draq deo
+歇緩
+打道
+磨拖	mei tei
+拾鬧
+打葺
+窄約
+覺妨	jyaq huo
+熬煎
+㞘擦
+摔打	suaq da
+摔展
+難過	nan guei
+提教	di jieo
+放橫	huo hsye
+瞅摸
+踅摸
+跌脫
+拿把
+龍抓
+滾纏	gueng dran
+緊屙
+緊尿
+屙屎
+見過	jie guei
+掛念
+打顫
+蓋安
+訛騙
+活散
+摩挲	baq hsie
+辯詭
+指望	dsiz uo
+訓嗆	hsyeng cyo
+填搙	die nzuaq
+填補	die bu
+計忖
+要鬧
+佔摟
+脫綻	tuaq tsan
+累堆
+貪飯
+攪挑
+沾掛
+禿舌
+拍侃
+餓出
+丟盹	diou dieng
+摳剝
+扎點
+撩逗
+搬喫
+摭摞
+蒯哄
+腾倒	deng deo
+鬼吱
+### n.
+喫手
+走手
+食笿
+籠牀	lueng suo
+搌布
+麪籺
+柬碟
+冬凌	dueng li
+甕津
+生月	sre yaq
+五果	u guei
+不是
+頹兒	duae raq
+般道
+屌勢
+脙勢
+頭口	dou kou
+肚栓
+屙尿
+曆頭	liaq dou
+立土
+臥土	uei tu
+忌諱	ji hsy
+爐絲
+火柱
+第明	di mi
+騍騾
+腿胯
+腦油
+腦水
+妻夫	tsei hu
+味氣
+### adj.
+癄枯
+喜合
+碾抖
+可惡	kie u
+勤謹	jieng jieng
+美氣
+殺生	saq seng
+合勢
+樂於	laq y
+後脹	hou dsuo
+嘴饞	dsuei san
+歇頂	xiaq dieng
+勁大	jieng dei
+俏灑
+活哨
+牙楞
+受用
+好活
+可意	kie i
+吸骨
+槎急
+難頑
+發咬
+玍骨
+寒磣
+食重
+背綁	bae beo
+近便
+舒軃	suz tei
+搭手
+的當	diaq dan
+細法	sei huaq
+如適
+齊楚	tsei tsuz
+齊集	tsei jiaq
+見小
+小樣	hsieo yo
+乾斷
+寡利
+尊貴
+超淘	treo deo
+爍亮	suaq luo
+氣綿	ci mie
+采重	tsae dsueng
+失笑
+嶊嵬
+### adv.
+敢說
+左賴
+好懸
+懸乎
+肯保
+難保
+該許
+難許
+能可	neng kie
+再陣
+緊趕
+設或
+大破	dei pei
+好倒
+好遇
+天日
+天每	tie mei
+對天
+異怪
+捎辦
+行比	hsia bi
+多虧	dei kuei
+給動
+誤閃
+勻點
+勻減
+頭前	dou jie
+浮頭	hu dou
+剛趕	jian gan
+賽如
+賽像	sae hsyo
+
+# 三字
+## ABB
+### n.
+
+好主主
+老漢漢
+孝順順
+蜜爺爺
+麥魚魚
+兄弟弟	hsy di di
+媳婦婦
+禿舌舌
+猴心心
+毛桃桃	mu deo deo
+腳線線
+
+影活活	i huaq huaq
+鍋脖脖	guei baq baq
+柬碟碟
+隔篦篦	jiaq bi bi
+籠甑甑	lueng dsei dsei
+砂鍋鍋
+炕桌桌
+哨马马
+手巾巾
+手束束
+口脫脫
+死歌歌	siz gie gie
+填還還	die huan huan
+椅杌杌
+地勢勢
+圪丁丁	gaq di di
+腦包包
+蘸水水
+發糊糊
+細喫喫
+門關關
+忌諱諱	ji hsy hsy
+杏仁仁	hsie reng reng
+豬蹄蹄
+活食食
+陽坡坡	yo pei pei
+### adj.
+末㞘㞘	maq tuaq tuaq
+長條條	dsuo dieo dieo
+貼身身
+澀巴巴	sraq ba ba
+薄灵灵	baq li li
+### adv.
+盡撐撐	jieng tra tra
+隔花花
+### v.
+數月月
+等歇歇
+抽點點
+適意意
+掇窩窩	duaq uei uei
+稱斤斤	treng jieng jieng
+歇身身
+抽籌籌	trou drou drou
+拈蛋蛋
+喃甜甜	nzan die die
+歇涼涼	hsiaq luo luo
+###
+一時時
+一陣陣
+一夥夥	iaq huei huei
+一色色	iaq sraq sraq
+一茬茬	iaq sa sa
+## AB人
+心煩人
+難意人
+難活人
+發咬人
+氣納人
+熬煎人
+窩屈人	uei cyaq reng
+失笑人
+圪捩人
+圪達人
+圪纏人	gaq dran reng
+圪惱人
+## ABA
+盡克盡
+實克實
+口倒口
+緊趕緊
+乍打乍
+甚是甚
+來不來
+## AA底
+難難底
+## A不B
+缱不得	cie baq diaq
+由不得
+見不得
+說不得
+斷不住
+頂不住	di baq dsuz
+說不應	suaq baq i
+告不應	geo baq i
+解不下
+解不開
+餓不出
+敵不上	diaq baq heo
+## v.
+掛人緣
+倒言語	deo nie ny
+翻閑話
+喫死食
+發睡挣	huaq suei dre
+道客人	deo ciaq reng
+頂新親	dieng hsieng cieng
+打散棍
+鬼畫符
+## n.
+南路家
+北路家
+雞嘴怪
+蝨子鬼
+說殼子
+自樂班
+穩實人
+前家兒	jie jia er
+活人妻	huaq reng tsei
+小婆姨
+翻眼猴
+捱打虎
+灰骨殖
+大兄哥	dei hsy gie
+沒足哥	maq jyaq gie
+雀目眼	jyaq maq nian
+夜宿眼
+駱駝蹄
+獨門星
+後老人
+母老虎
+朽扁頭	hsiou ban dou
+光棍漢
+殺豬漢
+角子漢
+鬧夥的
+薄劣子	baq liaq dsiz
+活子子	huaq dsiz dsaq
+活拍子
+膿水子
+二尾子	er i dsaq
+二標子
+叫花子	jieo hua dsaq
+禿舌子
+實身子
+
+老家雀	leo jia cieo
+米等尺
+小鬼日
+腿蹄骨
+口岔窩	kou sa uei
+老時衣
+還魂覺
+照羊狗
+板凳狗
+雜合菜
+韭菜氣
+籮麪雨
+穿心風
+牛碎肉
+生食氣	sre sraq ci
+關東插
+血心話
+前天爺	jie tie ie
+日頭爺	raq dou ie
+後天爺
+月明爺	yaq mi ie
+細喫的
+二五眼
+屎爬牛
+水師婆
+稍鍋頭	seo guei dou
+火鍋子
+火顆子	huei kuei dsaq
+喜歌子	hsi gie dsaq
+長山藥	dsuo san iaq
+## 
+一夥子	iaq huei dsaq
+# adj.
+乾屎臭
+寡水氣
+花子氣	hua dsaq ci
+謴性氣	gueng sei ci
+
+# 四字
+## AXAY
+暗掐暗臠
+利骨利散
+## AABB
+盤盤碟碟
+忙忙急急	meo meo jiaq jiaq
+邊邊沿沿
+角角腦腦
+急急凳凳
+難難意意
+翳翳昏昏
+勻勻溜溜
+等等當當	deng deng duo duo
+拾拾鬧鬧	sraq sraq neo neo
+嘗嘗蘸蘸	suo suo dsan dsan
+歇歇心心
+頂頂突突	di di tuaq tuaq
+娘娘姐姐	nyo nyo jie jie
+菜菜蔬蔬
+花花樣樣
+##
+隔山探海	jiaq san tan hae
+氣腸腷肚	ci dsuo biaq du
+紅頭脹臉	hueng dou dsuo lie
+颳風揚塵	guaq hueng yo dreng
+拋米灑麪
+鋪展疊被
+丟盔撂甲
+冬寒时月
+聽人道說	ti reng deo suaq
+天反時乱
+天寒日短
+湯里格水
+挑匙揀碗
+推磨滾碾
+推奸滑懶
+拖腳磨手
+拗腰折背
+鍋背折腰	guei bae sraq ieo
+背鍋折腰	bae guei sraq ieo
+黑燈灺火
+熰煙閉火
+拿妖捉怪
+拿腳盘手	na jyaq ban srou
+舒手拔脚	tsuz srou maq jyaq
+放橫打馬	huo hsye da ma
+戳橫弄拐	tsuaq hsye lueng guae
+過河隔道
+出村渡社
+上廟擊鼓
+上衙下府
+虛龍詐虎
+拿龍捉虎
+搖門篩窗	ieo meng sae suo
+連明徹夜
+惹是搬非
+依規合矩
+畫眉刻鬓
+添鹽加醋
+掇湯漏水
+偷死瞞活
+扭嘴變臉
+記怨結仇
+喪德敗興
+跌幫漏底
+上房揭瓦	suo huo jiaq ua
+趕車倒馬
+撩雞逗狗
+
+囫囵半片
+要緊三關
+假眉三道
+胡說三道
+鬼說六道
+胡七麻煩
+白說九道	biaq suaq jiou deo
+瞎射冒碰	haq sraq meo peng
+胡收亂拾
+
+多言撕舌
+多嘴偏舌
+能言快舌
+
+歡眉俊眼
+豬眉畜眼
+腫眉泡眼
+鬼眉溜眼
+異眉怪眼
+熬眉扯眼
+覷眉弄眼
+愣眉死眼
+白眉怪眼	biaq mi guae nian
+黑心爛眼
+
+單枝圪撩
+漂湯圪溢	pieo tuo gaq iaq
+堅皮圪韌	jie bi gaq reng
+禿舌圪嚅
+死蔫圪擦
+乜流圪斜
+乜流圪絀
+麻籸圪卷
+破布圪絮
+
+圪絀打顫
+圪擻篩糠	gaq sou sae kuo
+圪團窩屈	gaq duan uei cyaq
+圪蹴馬爬
+
+
+
+暖月時天
+夏月時天
+
+一時一乍
+二斗笸籮	er dou baq la
+一錯二誤	iaq tsaq er u
+鶻突二三	huaq duaq er san
+圪捩二三
+顛三二倒
+顛二倒三
+隔二偏三	jiaq er pie san
+眉三眼四
+說三道四
+顛三倒四
+圪捩三四
+隔三差五	jiaq san tsa u
+四離五散
+三輕六重	san ci liou dsueng
+七長二短
+八米二糠	baq mi er kuo
+禿五拐六
+五脊六獸
+拉六扯八
+七除八扣
+七齊八楚
+七安八擺
+七顛八倒
+七打八兌
+七平八整
+抓七舀八
+挨七挨八
+三八六九
+
+河撈牀牀
+失笑人人
+
+夥家夥計
+
+少調沒和
+少主沒意
+少人沒手
+少功沒夫
+
+死不待見
+麻胡拖豬
+鬼怕惡人
+照貓畫虎
+跳起失座
+白肚朝天
+騾馬骨頭
+鄰村上下	lieng tsueng suo ha
+陰涼細稍
+
+花紅油綠
+人慣馬熟
+油鬢水刮
+苦言辣語
+粗米揧麪
+亂人雜手
+窄街小巷
+鬼畫溜符
+死顏倒色
+泥豬賤狗
+铜幫铁底
+私病短頭	si bi duan dou
+心寬灑落
+大舞黃風
+
+死把荊州
+死磨黏牙
+
+天打地兌
+羞大面軟
+屙屎盼伴
+渾家老小
+光棍石漢
+明晝黑夜	mi drou haq ie
+明燈蠟燭	mi deng laq dsuaq
+
+眼上舌下	nian suo sraq ha
+沒出爛息
+
+半精不明	ban dsei baq mi
+不精半明	baq dsei ban mi
+不平不整
+不逗不斷
+直盐直醋
+乜流乜斜
+豁子牙子
+
+不爲怎底
+不識事眼
+不對緣法
+
+油腥爛氣
+煙屎爛氣
+花子爛氣
+腳臭爛氣
+
+假留薄喫
+小樣薄喫
+泥糊薄喫
+麪糊薄喫
+甜牙薄喫
+雨淋薄喫
+臉紅薄喫
+
+塌倒物爛
+倒塌物爛
+熰焦物爛
+黑褿物爛
+死蔫物爛

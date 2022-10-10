@@ -4,7 +4,7 @@
 schema:
   schema_id: piengieo_double
   name: 平遙話晉拼（雙拼）
-  version: '0.2'
+  version: '0.3'
   author:
     - Skanda
   description: |
@@ -78,7 +78,8 @@ speller:
     - xform/^(y.*)$/Y$1/
     # 替換韻母
     # 參考小鶴拼音，儘量不改動
-    - xform/[iu]a$/X/
+    - xform/ia$/X/
+    - xform/^([^ln])ua$/$1X/
     - xform/ieo$/N/
     - xform/eo$/C/
     - xform/uei$/V/
@@ -96,6 +97,7 @@ speller:
     - xform/ieng$/B/
     - xform/eng$/G/
     # 平遙話特有，可以調整
+    - xform/^([ln])ua$/$1U/
     - xform/y$/Y/
     - xform/iz$/I/
     - xform/uz$/U/
@@ -116,6 +118,7 @@ translator:
     - xform/er/ER/
     - xform/en/N/
     # 雙拼第二碼轉換爲韻母
+    - xform/([ln]u)/$1A/
     - xform/([lnjqxobpm])x/$1IA/
     - xform/(\w)x/$1UA/
     - xform/([jqx])d/$1YA/
