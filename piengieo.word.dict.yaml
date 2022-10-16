@@ -3,7 +3,7 @@
 
 ---
 name: piengieo.word
-version: "2022.10.11"
+version: "2022.10.16"
 sort: by_weight
 ...
 
@@ -172,7 +172,7 @@ sort: by_weight
 𣝗𣝗
 綻綻
 襻襻
-
+釘釘	di di
 ## X人
 綁人	beo reng
 困人
@@ -205,53 +205,53 @@ sort: by_weight
 ### n.
 圪蟲
 圪洞
-
-## X開
+## X住/開/下/徹/煞/着/轉/成
+㧁住
+荷住	hei dsuz
 解開
 迸開	bie kae
-## X下
 解下
 瞅下
-## X徹
 說徹
 澆徹
-## X煞
 綁煞	beo saq
 荷煞	hei saq
-## X着
 緊着	jieng diaq
 荷着	hei diaq
-## X轉
 荷轉	hei dsuan
-## X成
 喫成	traq sriz
 穿成	tsuan sriz
 走成	dsou sriz
 種成	dsueng sriz
-## X擦
+## X擦/拍/架/倒
 做擦
 說擦
 拍擦
 抹擦
-## X拍
 疊拍
 扇拍
 苫拍
 捉拍
 吹拍
-## X架
 探架
 喫架
 撐架	tra jia
 炫架
 爬架	ba jia
+串倒
+買倒
+哄倒
 ## 錯X
-錯寫
-錯荷
-錯說
-錯記
-錯算
-錯刀
+錯寫	caq hsie
+錯荷	caq hei
+錯說	caq suaq
+錯記	caq ji
+錯算	caq suan
+錯刀	caq deo
+## 着X
+着風	dreo hueng
+着涼	dreo luo
+着急	dreo jiaq
 ## AB
 ### v.
 趕逸	gan iaq
@@ -367,12 +367,16 @@ sort: by_weight
 蒯哄
 腾倒	deng deo
 鬼吱
+戳拐
+誇諞
+眊瞧
 ### n.
 喫手
 走手
 食笿
 籠牀	lueng suo
 搌布
+笸籮	baq la
 麪籺
 柬碟
 冬凌	dueng li
@@ -398,8 +402,16 @@ sort: by_weight
 腿胯
 腦油
 腦水
-妻夫	tsei hu
 味氣
+妻夫	tsei hu
+兀家
+老漢
+筬子
+嚏噴
+指頭	draq dou
+趾頭	draq dou
+日南
+交趾	jieo dsaq
 ### adj.
 癄枯
 喜合
@@ -447,6 +459,8 @@ sort: by_weight
 采重	tsae dsueng
 失笑
 嶊嵬
+戳莽
+戳皮
 ### adv.
 敢說
 左賴
@@ -507,6 +521,7 @@ sort: by_weight
 手巾巾
 手束束
 口脫脫
+雜話話
 死歌歌	siz gie gie
 填還還	die huan huan
 椅杌杌
@@ -527,7 +542,8 @@ sort: by_weight
 長條條	dsuo dieo dieo
 貼身身
 澀巴巴	sraq ba ba
-薄灵灵	baq li li
+薄靈靈	baq li li
+水靈靈	suei li li
 ### adv.
 盡撐撐	jieng tra tra
 隔花花
@@ -577,6 +593,8 @@ sort: by_weight
 由不得
 見不得
 說不得
+招不住
+適不住
 斷不住
 頂不住	di baq dsuz
 說不應	suaq baq i
@@ -594,6 +612,7 @@ sort: by_weight
 道客人	deo ciaq reng
 頂新親	dieng hsieng cieng
 打散棍
+打嚏噴
 鬼畫符
 ## n.
 南路家
@@ -662,8 +681,14 @@ sort: by_weight
 火顆子	huei kuei dsaq
 喜歌子	hsi gie dsaq
 長山藥	dsuo san iaq
+手指頭	srou draq dou
+腳趾頭	jyaq draq dou
+指頭頭	draq dou dou
+趾頭頭	draq dou dou
 ## 
 一夥子	iaq huei dsaq
+一年兒
+一番兒
 # adj.
 乾屎臭
 寡水氣
@@ -725,6 +750,7 @@ sort: by_weight
 虛龍詐虎
 拿龍捉虎
 搖門篩窗	ieo meng sae suo
+閉門㧁窗
 連明徹夜
 惹是搬非
 依規合矩
@@ -749,6 +775,7 @@ sort: by_weight
 白說九道	biaq suaq jiou deo
 瞎射冒碰	haq sraq meo peng
 胡收亂拾
+胡踢溜打
 
 多言撕舌
 多嘴偏舌
@@ -817,8 +844,10 @@ sort: by_weight
 
 河撈牀牀
 失笑人人
+聽呵聲聲
 
 夥家夥計
+手頭活計
 
 少調沒和
 少主沒意
@@ -849,6 +878,7 @@ sort: by_weight
 私病短頭	si bi duan dou
 心寬灑落
 大舞黃風
+白茬麻胡
 
 死把荊州
 死磨黏牙

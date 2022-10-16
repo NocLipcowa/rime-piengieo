@@ -5,7 +5,7 @@
 #
 ---
 name: piengieo
-version: "2022.10.11"
+version: "2022.10.16"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:
@@ -81,6 +81,7 @@ import_tables:
 翼	i
 
 尾	i
+委	i
 
 蠅	i
 應	i
@@ -257,6 +258,7 @@ import_tables:
 題	ti
 啼	ti
 堤	ti
+嚏	ti
 
 聽	ti
 廳	ti
@@ -466,6 +468,7 @@ import_tables:
 啓	ci
 啟	ci
 契	ci
+棄	ci
 
 妻	ci
 淒	ci
@@ -782,6 +785,7 @@ import_tables:
 城	sriz
 成	sriz
 盛	sriz
+筬	sriz
 晟	sriz
 聲	sriz
 聖	sriz
@@ -792,6 +796,8 @@ import_tables:
 繩	sriz
 乘	sriz
 剩	sriz
+秤	sriz
+稱	sriz
 
 # -u: 模韻、豪韻
 # u
@@ -1784,7 +1790,7 @@ import_tables:
 坡	peo
 頗	peo
 叵	peo
-笸	peo
+笸	peo	6%
 破	peo
 婆	peo
 鄱	peo
@@ -1825,7 +1831,12 @@ import_tables:
 摩	meo
 蘑	meo
 
+眊	meo
+
+牡	meo	0%
+
 忙	meo
+莽	meo
 
 # deo
 刀	deo
@@ -1884,6 +1895,7 @@ import_tables:
 嫪	leo
 老	leo
 佬	leo
+咾	leo
 潦	leo
 栳	leo
 癆	leo
@@ -1925,6 +1937,7 @@ import_tables:
 軻	keo
 可	keo
 坷	keo
+柯	keo
 
 # heo
 蒿	heo
@@ -1945,6 +1958,8 @@ import_tables:
 鎬	heo
 顥	heo
 号	heo
+
+孝	heo
 
 呵	heo
 訶	heo
@@ -2002,6 +2017,8 @@ import_tables:
 炤	dreo
 曌	dreo
 
+着	dreo
+
 # treo
 超	treo
 怊	treo
@@ -2017,9 +2034,6 @@ import_tables:
 韶	sreo
 紹	sreo
 邵	sreo
-
-# nzeo
-撓	nzeo
 
 # reo
 饒	reo
@@ -2085,6 +2099,7 @@ import_tables:
 嫂	seo
 梢	seo
 捎	seo
+哨	seo
 鞘	seo
 綃	seo
 艄	seo
@@ -2095,7 +2110,9 @@ import_tables:
 㥰	seo
 炒	seo
 𪎊	seo
-哨	seo
+
+# nzeo
+撓	nzeo
 
 # eo
 喔	eo
@@ -2347,11 +2364,11 @@ import_tables:
 多	duo
 哆	duo
 舵	duo
-大	duo
-躲	duo
+大	duo	0%
+躲	duo	5%
 朵	duo
 埵	duo
-剁	duo
+剁	duo	5%
 跺	duo
 墮	duo
 垛	duo
@@ -2359,14 +2376,21 @@ import_tables:
 
 當	duo
 噹	duo
-
+擋	duo
+襠	duo
+糖	duo
+唐	duo
+堂	duo
+棠	duo
+塘	duo
+膛	duo
 
 # tuo
 拖	tuo
 妥	tuo
 橢	tuo
-唾	tuo
-他	tuo
+唾	tuo	6%
+他	tuo	0%
 佗	tuo
 
 湯	tuo
@@ -2667,12 +2691,14 @@ import_tables:
 
 # yo
 羊	yo
+楊	yo
 揚	yo
 陽	yo
 養	yo
 樣	yo
 秧	yo
 怏	yo
+佯	yo
 
 # -e
 # dre
@@ -2967,7 +2993,6 @@ import_tables:
 前	jie
 歬	jie
 荐	jie
-肩	jie
 堅	jie
 鰹	jie
 繭	jie
@@ -3104,6 +3129,7 @@ import_tables:
 舷	hsie
 峴	hsie
 現	hsie
+縣	hsie
 
 杏	hsie
 
@@ -5338,7 +5364,6 @@ import_tables:
 諫	jian
 鐗	jian
 㵎	jian
-閒	jian
 艱	jian
 簡	jian
 揀	jian
@@ -5346,6 +5371,7 @@ import_tables:
 間	jian
 襉	jian
 襇	jian
+肩	jian
 
 艦	jian
 檻	jian
@@ -5401,6 +5427,7 @@ import_tables:
 陷	hsian
 橌	hsian
 嫺	hsian
+閒	hsian
 閑	hsian
 癇	hsian
 嫻	hsian
@@ -5455,6 +5482,7 @@ import_tables:
 團	duan
 短	duan
 斷	duan
+䠪	duan
 鍛	duan
 瑖	duan
 碫	duan
@@ -5868,6 +5896,7 @@ import_tables:
 謄	deng
 𤻴	deng
 疼	deng
+騰	deng
 扽	deng
 
 # teng
@@ -6049,7 +6078,8 @@ import_tables:
 胗	dreng
 震	dreng
 振	dreng
-嗔	treng
+嗔	treng	6%
+嗔	sreng
 瞋	treng
 晨	treng
 臣	treng
@@ -6149,7 +6179,7 @@ import_tables:
 # -ieng
 # bieng pieng
 斌	bieng
-份	bieng
+份	bieng	0%
 彬	bieng
 豳	bieng
 邠	bieng
@@ -6204,6 +6234,8 @@ import_tables:
 砯	pieng
 憑	pieng
 馮	pieng
+
+品	pieng
 
 # mieng
 緡	mieng
@@ -7479,6 +7511,9 @@ import_tables:
 埴	draq
 濯	draq
 
+指	draq	0%
+趾	draq	0%
+
 着	draq
 著	draq
 
@@ -7534,6 +7569,8 @@ import_tables:
 芍	sraq
 折	sraq
 
+䜺	sraq
+
 # raq
 兒	raq
 
@@ -7551,6 +7588,7 @@ import_tables:
 子	dsaq
 睫	dsaq
 咱	dsaq
+趾	dsaq	0%
 
 澤	dsaq
 匝	dsaq
@@ -7572,7 +7610,7 @@ import_tables:
 嘖	dsaq
 戢	dsaq
 拶	dsaq
-鍘	dsaq
+鍘	dsaq	0%
 扎	dsaq
 紮	dsaq
 札	dsaq
@@ -7621,6 +7659,8 @@ import_tables:
 趿	saq
 霎	saq
 歃	saq
+
+鍘	saq
 
 # -iaq
 # biaq
@@ -7783,6 +7823,10 @@ import_tables:
 臬	niaq
 鎳	niaq
 逆	niaq
+
+業	niaq
+鄴	niaq
+澲	niaq
 
 # jiaq
 甲	jiaq
@@ -7981,9 +8025,6 @@ import_tables:
 靨	iaq
 醃	iaq
 腌	iaq
-業	iaq
-鄴	iaq
-澲	iaq
 浥	iaq
 熠	iaq
 煜	iaq
@@ -8027,6 +8068,9 @@ import_tables:
 藥	iaq	0%
 樂	iaq
 也	iaq	6%
+
+鄴	iaq
+澲	iaq
 
 # -uaq
 # duaq
