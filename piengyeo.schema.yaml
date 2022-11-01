@@ -4,7 +4,7 @@
 schema:
   schema_id: piengyeo
   name: 平遙話拼音
-  version: '0.2'
+  version: '0.3'
   author:
     - Skanda
   description: |
@@ -101,12 +101,9 @@ speller:
     - derive/(.)[yu]eng$/$1un/         # hun <=> hueng, jun <=> jyeng, ..
     # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq <=> baq, ..
-    - derive/(.[iuy])aq$/$1q/          # biq <=> biaq, ..
-    - derive/([iuy]?)aq$/$1ah/         # biah <=> biaq, ..
-    - derive/([iuy]?)aq$/$1eh/         # bieh <=> biaq, ..
-    - derive/(.[iuy])aq$/$1h/          # bih <=> biaq, ..
-    - derive/^yaq$/yiq/                # yih <=> yiq <=> yaq
-    - derive/^yaq$/yih/
+    - derive/([iuy])aq$/$1q/           # biq <=> biaq, ..
+    - derive/^yaq$/yiq/                # yiq <=> yaq
+    - derive/([aeiuy]?)q$/$1h/         # biah => biaq, ..
     # 簡拼
     - abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
     - abbrev/^([zcs]h).+$/$1/          # 簡拼（zh, ch, sh）
@@ -114,13 +111,15 @@ speller:
     - abbrev/^(zs).+$/$1/              # 簡拼 zs
     # 自動糾正一些常見的按鍵錯誤
     - derive/([aeio])ng$/$1gn/         # degn => deng, ..
-    - derive/([dtngkhrzcs])o(u|ng)$/$1o/ # zho => zhong|zhou
+    - derive/([dtnlgkhrzcs])o(u|ng)$/$1o/ # zho => zhong|zhou
     - derive/ong$/on/                  # zhonguo => zhong guo
     - derive/ao$/oa/                   # hoa => hao, ..
     - derive/eo$/oe/                   # heo => heo, ..
     - derive/i([ae])o$/$1io/           # teio => tieo, ..
     - derive/([iu])e(ng)$/e$1$2/       # teing => tieng, ..
-
+    # 自動糾正一些手機的常見誤觸
+    - derive/([dtnlgkhrzcs])o(u|ng)$/$1p$2/ # zhpu => zhou, ..
+    - derive/([aeiou])n/$1m/           # dam => dan, ..
 translator:
   dictionary: &dict
     piengieo

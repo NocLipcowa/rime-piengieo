@@ -4,7 +4,7 @@
 schema:
   schema_id: piengieo
   name: 平遙話晉拼
-  version: '0.2'
+  version: '0.3'
   author:
     - Skanda
   description: |
@@ -58,14 +58,14 @@ speller:
   algebra:
     # 定製模糊音以儘量符合漢語拼音使用者習慣
     # 聲母
+    - derive/^c/q/                     # q => c
+    - derive/^hs/x/                    # x => hs
     - derive/^([dt])su/$1ru/           # drueng => dsueng, ..
     - derive/^su/sru/                  # srueng => sueng, ..
     - derive/^zu/ru/                   # rueng => zueng, ..
     - derive/^dr/zh/                   # zh => dr
     - derive/^tr/ch/                   # ch => tr
     - derive/^sr/sh/                   # sh => sr
-    - derive/^c/q/                     # q => c
-    - derive/^hs/x/                    # x => hs
     - derive/^hu(.)/f$1/               # feng => hueng, ..
     # 零聲母
     - derive/^u(.)/w$1/                # 可以用 w 代替位於音節首位的 u，整體音節 u 除外
@@ -87,30 +87,37 @@ speller:
     # 契合漢語拼音的方式輸入 eng
     - derive/^neng$/nong/              # nong => neng
     - derive/(.)ieng$/$1ing/           # ing => ieng
-    - derive/^ieng$/yin/               # 可以用 yin 代替整體音節 ieng
     - derive/^ieng$/ying/              # 可以用 ying 代替整體音節 ieng
     - derive/(.)ueng$/$1ong/           # ong => ueng
     - derive/(.)yeng$/$1iong/          # iong => yeng
     # 模糊前後鼻音標記 n/ng
     - derive/(an)$/$1g/                # ang => an
     - derive/([^iuy])eng$/$1en/        # en => eng, ..
-    - derive/(.)ieng$/$1in/            # in => ieng
+    - derive/(.)ie*ng$/$1in/            # in => ieng
     - derive/(.)[yu]eng$/$1un/         # hun => hueng, jun => jyeng, ..
     # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq => baq, kueq => kuaq, ..
     - derive/([iuy])aq$/$1q/           # biq => biaq, ..
     - derive/^iaq$/yiq/                # 可以用 yiq 代替整體音節 iaq
-    - derive/([iuy]?)aq$/$1ah/         # biah => biaq, ..
-    - derive/([iuy]?)aq$/$1eh/         # bieh => biaq, ..
-    - derive/([iuy])aq$/$1h/           # bih => biaq, ..
-    - derive/^iaq$/yih/                # 可以用 yih 代替整體音節 iaq
+    - derive/([aeiuy]?)q$/$1h/         # biah => biaq, ..
     # 簡拼
     - abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
     - abbrev/^([dts]r).+$/$1/          # 簡拼（dr, tr, sr）
     - abbrev/^([zcs]h).+$/$1/          # 簡拼（zh, ch, sh）
     - abbrev/^([dth]s).+$/$1/          # 簡拼（ds, ts, hs）
     - abbrev/^(n[grz]).+$/$1/          # 簡拼（ng, nr, nz）
-
+    # 自動糾正一些常見的按鍵錯誤
+    - derive/([aeio])ng$/$1gn/         # degn => deng, ..
+    - derive/([dtnlgkhrzcs])o(u|ng)$/$1o/ # zho => zhong|zhou
+    - derive/ong$/on/                  # zhonguo => zhong guo
+    - derive/ao$/oa/                   # hoa => hao, ..
+    - derive/eo$/oe/                   # heo => heo, ..
+    - derive/i([ae])o$/$1io/           # teio => tieo, ..
+    - derive/([iu])e(ng)$/e$1$2/       # teing => tieng, ..
+    # 自動糾正一些手機的常見誤觸
+    - derive/([dtnlgkhrzcs])o(u|ng)$/$1p$2/ # zhpu => zhou, ..
+    - derive/([aeiou])n/$1m/           # dam => dan, ..
+    
 translator:
   dictionary: &dict
     piengieo

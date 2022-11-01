@@ -3,7 +3,7 @@
 
 ---
 name: piengieo.word
-version: "2022.10.16"
+version: "2022.11.02"
 sort: by_weight
 ...
 
@@ -205,7 +205,7 @@ sort: by_weight
 ### n.
 圪蟲
 圪洞
-## X住/開/下/徹/煞/着/轉/成
+## X住/開/下/徹/煞/着/轉/成/給
 㧁住
 荷住	hei dsuz
 解開
@@ -223,6 +223,13 @@ sort: by_weight
 穿成	tsuan sriz
 走成	dsou sriz
 種成	dsueng sriz
+看給
+說給
+打給
+做給
+哭給
+剆給
+拍給
 ## X擦/拍/架/倒
 做擦
 說擦
@@ -370,7 +377,11 @@ sort: by_weight
 戳拐
 誇諞
 眊瞧
+揆覺	jy jyaq
+緊走
+步碥
 ### n.
+眉眼
 喫手
 走手
 食笿
@@ -412,6 +423,8 @@ sort: by_weight
 趾頭	draq dou
 日南
 交趾	jieo dsaq
+氣兒
+勁兒
 ### adj.
 癄枯
 喜合
@@ -559,6 +572,7 @@ sort: by_weight
 拈蛋蛋
 喃甜甜	nzan die die
 歇涼涼	hsiaq luo luo
+道讗讗
 ###
 一時時
 一陣陣
@@ -604,6 +618,7 @@ sort: by_weight
 餓不出
 敵不上	diaq baq heo
 ## v.
+變眉眼
 掛人緣
 倒言語	deo nie ny
 翻閑話
@@ -641,6 +656,7 @@ sort: by_weight
 殺豬漢
 角子漢
 鬧夥的
+狗眉眼
 薄劣子	baq liaq dsiz
 活子子	huaq dsiz dsaq
 活拍子
@@ -651,6 +667,7 @@ sort: by_weight
 禿舌子
 實身子
 
+便宜飯
 老家雀	leo jia cieo
 米等尺
 小鬼日

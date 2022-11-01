@@ -5,7 +5,7 @@
 #
 ---
 name: piengieo
-version: "2022.10.16"
+version: "2022.11.02"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:
@@ -62,6 +62,8 @@ import_tables:
 肄	i
 裔	i
 曳	i
+
+遺	i
 
 宜	i
 儀	i
@@ -724,6 +726,9 @@ import_tables:
 示	siz
 諡	siz
 師	siz
+視	siz
+
+齒	siz
 
 # nziz
 膩	nziz
@@ -780,6 +785,7 @@ import_tables:
 癡	triz
 笞	triz
 恥	triz
+持	triz
 
 # sriz
 城	sriz
@@ -1255,6 +1261,7 @@ import_tables:
 閨	jy
 劇	jy
 鬼	jy
+揆	jy
 給	jy
 冋	jy
 炯	jy
@@ -1411,16 +1418,14 @@ import_tables:
 慰	y
 尉	y
 蔚	y
-
 圍	y
 緯	y
-
 魏	y
-永	y
 
 玉	y
 鈺	y
 
+永	y
 塋	y
 穎	y
 瑩	y
@@ -2042,6 +2047,8 @@ import_tables:
 擾	reo
 遶	reo
 
+攘	reo
+
 # dseo
 遭	dseo
 槽	dseo
@@ -2530,6 +2537,7 @@ import_tables:
 腸	dsuo
 丈	dsuo
 杖	dsuo
+掌	dsuo	0%
 仗	dsuo
 莊	dsuo
 裝	dsuo
@@ -2595,6 +2603,7 @@ import_tables:
 商	suo
 尚	suo
 嚐	suo
+常	suo
 裳	suo
 嘗	suo
 上	suo
@@ -2602,7 +2611,7 @@ import_tables:
 晌	suo
 賞	suo
 
-雙	suo
+雙	suo	0%
 
 嗦	suo
 娑	suo
@@ -3000,7 +3009,6 @@ import_tables:
 趼	jie
 見	jie
 鋻	jie
-鑒	jie
 
 羹	jie
 庚	jie
@@ -3346,6 +3354,7 @@ import_tables:
 鏇	hsye
 嫙	hsye
 縼	hsye
+軒	hsye
 
 橫	hsye
 
@@ -3757,6 +3766,7 @@ import_tables:
 罪	dsuae
 拽	dsuae
 嶊	dsuae
+嗺	dsuae
 
 # tsuae
 催	tsuae
@@ -3781,12 +3791,14 @@ import_tables:
 啐	suae
 
 # uae
+嵬	uae
+磑	uae
+
 喂	uae
 兀	uae
 歪	uae
 崴	uae
 外	uae
-嵬	uae
 
 # -ei
 # bei
@@ -3829,6 +3841,8 @@ import_tables:
 裡	lei
 螺	lei
 騾	lei
+
+那	lei
 
 # dei
 底	dei
@@ -4102,6 +4116,7 @@ import_tables:
 炊	tsuei
 垂	tsuei
 陲	tsuei
+脆	tsuei
 
 # suei
 眭	suei
@@ -4141,6 +4156,8 @@ import_tables:
 渦	uei
 窩	uei
 萵	uei
+踒	uei
+
 爲	uei
 潙	uei
 帷	uei
@@ -4195,8 +4212,7 @@ import_tables:
 惟	uei
 遺	uei
 濰	uei
-崴	uei
-踒	uei
+
 兀	uei
 
 # -ou
@@ -4637,8 +4653,7 @@ import_tables:
 辦	ban
 瓣	ban
 爿	ban
-
-扮	ban
+扁	ban
 
 幫	ban
 榜	ban
@@ -5179,6 +5194,7 @@ import_tables:
 嬋	tran
 
 腸	tran
+場	tran
 長	tran
 倀	tran
 昶	tran
@@ -5700,7 +5716,7 @@ import_tables:
 愴	tsuan
 穿	tsuan
 川	tsuan
-喘	tsuan
+喘	tsuan	6%
 舛	tsuan
 串	tsuan
 釧	tsuan
@@ -5722,21 +5738,20 @@ import_tables:
 蒜	suan
 祘	suan
 筭	suan
-爽	suan
-霜	suan
-孀	suan
-驦	suan
-鸘	suan
 栓	suan
 拴	suan
 涮	suan
 閂	suan
 𥽽	suan
 喘	suan
+疝	suan
 
 雙	suan
-
-疝	suan
+爽	suan
+霜	suan
+孀	suan
+驦	suan
+鸘	suan
 
 # nzuan
 奻	nzuan
@@ -5748,6 +5763,8 @@ import_tables:
 輭	zuan
 軟	zuan
 耎	zuan
+阮	zuan
+朊	zuan
 
 # uan
 王	uan
@@ -6328,6 +6345,7 @@ import_tables:
 甯	nieng
 佞	nieng
 鸋	nieng
+硬	nieng
 
 銀	nieng
 垠	nieng
@@ -6579,6 +6597,7 @@ import_tables:
 煋	hsieng
 興	hsieng
 
+葚	hsieng
 
 # ieng
 音	ieng
@@ -6971,6 +6990,7 @@ import_tables:
 鍾	dsueng
 鐘	dsueng
 重	dsueng
+衆	dsueng
 種	dsueng
 腫	dsueng
 踵	dsueng
@@ -7542,34 +7562,35 @@ import_tables:
 飾	sraq
 拭	sraq
 軾	sraq
-食	sraq
-蝕	sraq
-色	sraq
-赤	sraq
-殖	sraq
-石	sraq
-碩	sraq
 釋	sraq
 適	sraq
-奭	sraq
-射	sraq
-瑟	sraq
 蝨	sraq
-實	sraq
-室	sraq
 失	sraq
 設	sraq
+攝	sraq
+奭	sraq
+溼	sraq
+赤	sraq
+䜺	sraq
+色	sraq
+澀	sraq
+瑟	sraq
+
+食	sraq
+蝕	sraq
+石	sraq
+碩	sraq
+實	sraq
+室	sraq
 舌	sraq
 十	sraq
 什	sraq
 拾	sraq
 涉	sraq
-攝	sraq
-澀	sraq
 芍	sraq
 折	sraq
-
-䜺	sraq
+射	sraq
+殖	sraq
 
 # raq
 兒	raq
@@ -7660,6 +7681,7 @@ import_tables:
 霎	saq
 歃	saq
 
+廝	saq
 鍘	saq
 
 # -iaq
@@ -7694,6 +7716,8 @@ import_tables:
 逼	biaq
 愎	biaq
 腷	biaq
+憋	biaq
+鱉	biaq
 
 # piaq
 劈	piaq
@@ -7707,6 +7731,7 @@ import_tables:
 啪	piaq
 珀	piaq
 撇	piaq
+撆	piaq
 瞥	piaq
 
 # miaq
@@ -7950,6 +7975,8 @@ import_tables:
 㬤	ciaq
 蹻	ciaq
 
+鵲	ciaq
+
 # xiaq
 檄	hsiaq
 隙	hsiaq
@@ -8015,6 +8042,7 @@ import_tables:
 
 籺	hsiaq
 揳	hsiaq
+讗	hsiaq
 
 # iaq
 頁	iaq
