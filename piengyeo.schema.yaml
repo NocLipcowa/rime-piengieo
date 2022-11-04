@@ -4,7 +4,7 @@
 schema:
   schema_id: piengyeo
   name: 平遙話拼音
-  version: '0.3'
+  version: '0.4'
   author:
     - Skanda
   description: |
@@ -86,22 +86,21 @@ speller:
     - derive/ae$/ai/                   # ai <=> ae
     - derive/eo$/ao/                   # ao <=> eo
     - derive/^([bpm])eo$/$1o/          # bo <=> beo, ..
-    - derive/(.)uei$/$1ui/             # ui <=> uei
-    - derive/(.)iou$/$1iu/             # iu <=> iou
+    - derive/uei$/$1ui/                # ui <=> uei
+    - derive/iou$/$1iu/                # iu <=> iou
     # 契合漢語拼音的方式輸入 eng
     - derive/^neng$/nong/              # nong <=> neng
-    - derive/(.)ieng$/$1ing/           # ing <=> ieng
     - derive/(.)ueng$/$1ong/           # long <=> lueng, ..
     - derive/(.)yeng$/$1ueng/          # jiong <=> jueng <=> jyeng, ..
     - derive/(.)yeng$/$1iong/
+    - derive/([iuy])eng$/$1ng/         # ing <=> ieng, ung <=> ueng, yng <=> yeng, ..
     # 模糊前後鼻音標記 n/ng
     - derive/(an)$/$1g/                # ang <=> an
-    - derive/([^iuy]?)eng$/$1en/       # nen <=> neng, ..
-    - derive/(.)ieng$/$1in/            # in <=> ieng
-    - derive/(.)[yu]eng$/$1un/         # hun <=> hueng, jun <=> jyeng, ..
+    - derive/([eiuy])ng$/$1n/          # nen <=> neng, ..
     # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq <=> baq, ..
-    - derive/([iuy])aq$/$1q/           # biq <=> biaq, ..
+    - derive/([iuy])aq$/$1q/           # biq <=> biaq, guq <=> guaq, jyq <=> jyaq, ..
+    - derive/([bpm])aq$/$1uq/          # buq <=> baq, ..
     - derive/^yaq$/yiq/                # yiq <=> yaq
     - derive/([aeiuy]?)q$/$1h/         # biah => biaq, ..
     # 簡拼

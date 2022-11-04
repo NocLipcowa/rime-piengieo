@@ -3,11 +3,14 @@
 
 ---
 name: piengieo.word
-version: "2022.11.02"
+version: "2022.11.04"
 sort: by_weight
 ...
 
 # 地名
+曲沃	cyaq u
+靜升	dsei sriz
+
 城闔裏	treng haq lei
 沙巷	sa huo
 井巷	dsei huo
@@ -191,6 +194,7 @@ sort: by_weight
 撐人	tseng reng
 飢人
 噎人
+培人	bae reng
 ## 圪X
 ### v.
 圪繾
@@ -414,9 +418,6 @@ sort: by_weight
 腦油
 腦水
 味氣
-妻夫	tsei hu
-兀家
-老漢
 筬子
 嚏噴
 指頭	draq dou
@@ -425,6 +426,15 @@ sort: by_weight
 交趾	jieo dsaq
 氣兒
 勁兒
+妻夫	tsei hu
+人家	reng nia
+兀家
+老漢
+老老
+老孃	leo nia
+孃孃	nia nia
+擺擺	bae bae
+簡爺	jian ie
 ### adj.
 癄枯
 喜合
@@ -592,6 +602,7 @@ sort: by_weight
 圪達人
 圪纏人	gaq dran reng
 圪惱人
+澀擦人	sraq tsaq reng
 ## ABA
 盡克盡
 實克實
@@ -718,21 +729,28 @@ sort: by_weight
 利骨利散
 ## AABB
 盤盤碟碟
-忙忙急急	meo meo jiaq jiaq
 邊邊沿沿
 角角腦腦
+菜菜蔬蔬
+娘娘姐姐	nyo nyo jie jie
 急急凳凳
 難難意意
 翳翳昏昏
 勻勻溜溜
+歇歇心心
+四四方方	siz siz huo huo
+頂頂突突	di di tuaq tuaq
+花花樣樣
+冷冷清清	lia lia tsei tsei
+忙忙急急	meo meo jiaq jiaq
+寒寒磣磣	han han seng seng
+攮攮動動	nzuo nzuo dueng dueng
+剆剆打打	lei lei da da
 等等當當	deng deng duo duo
 拾拾鬧鬧	sraq sraq neo neo
 嘗嘗蘸蘸	suo suo dsan dsan
-歇歇心心
-頂頂突突	di di tuaq tuaq
-娘娘姐姐	nyo nyo jie jie
-菜菜蔬蔬
-花花樣樣
+聽聽說說	ti ti suaq suaq
+
 ##
 隔山探海	jiaq san tan hae
 氣腸腷肚	ci dsuo biaq du
@@ -782,12 +800,14 @@ sort: by_weight
 上房揭瓦	suo huo jiaq ua
 趕車倒馬
 撩雞逗狗
+沒多有少	maq dei iou sreo
 
 囫囵半片
 要緊三關
 假眉三道
 胡說三道
 鬼說六道
+雜說六道
 胡七麻煩
 白說九道	biaq suaq jiou deo
 瞎射冒碰	haq sraq meo peng
@@ -824,10 +844,9 @@ sort: by_weight
 圪團窩屈	gaq duan uei cyaq
 圪蹴馬爬
 
-
-
 暖月時天
 夏月時天
+臘月時天
 
 一時一乍
 二斗笸籮	er dou baq la
@@ -859,12 +878,15 @@ sort: by_weight
 挨七挨八
 三八六九
 
-河撈牀牀
+河撈牀牀	hei leo suo suo
 失笑人人
-聽呵聲聲
+聽呵聲聲	ti hei sriz sriz
+細萌兒兒	sei mia er er
 
-夥家夥計
-手頭活計
+夥家夥計	huei jia huei ji
+手頭活計	srou dou huaq ji
+家當物什	jia duo uaq sraq
+家當事物	jia duo siz uaq
 
 少調沒和
 少主沒意
@@ -883,6 +905,7 @@ sort: by_weight
 
 花紅油綠
 人慣馬熟
+河飄水淊	hei pieo suei ngan
 油鬢水刮
 苦言辣語
 粗米揧麪
@@ -896,6 +919,13 @@ sort: by_weight
 心寬灑落
 大舞黃風
 白茬麻胡
+一天到晚
+
+自把自掙	dsiz ba dsiz dseng
+廝跟廝攆
+又踢又咬
+㞘前㞘後	duaq jie duaq hou
+過來過去	guei lae guei diaq
 
 死把荊州
 死磨黏牙
@@ -907,6 +937,7 @@ sort: by_weight
 光棍石漢
 明晝黑夜	mi drou haq ie
 明燈蠟燭	mi deng laq dsuaq
+磑挪㞘擦
 
 眼上舌下	nian suo sraq ha
 沒出爛息

@@ -4,7 +4,7 @@
 schema:
   schema_id: piengieo
   name: 平遙話晉拼
-  version: '0.3'
+  version: '0.4'
   author:
     - Skanda
   description: |
@@ -76,28 +76,26 @@ speller:
     - derive/(.)y$/$1v/                # nv => ny, ..
     - derive/([^nl])y/$1u/             # ju => jy, jua => jya, jue => jye, juo => jyo, ..
     - derive/([iu])z$/$1/              # i => iz, u => uz
-
     - derive/ae$/ai/                   # ai => ae
     - derive/^ieo$/yeo/                # 可以用 yeo 代替整體音節 ieo
     - derive/eo$/ao/                   # ao => eo
     - derive/([bpm])eo$/$1o/           # bo => beo, po => peo, ..
-    - derive/(.)uei$/$1ui/             # ui => uei
-    - derive/(.)iou$/$1iu/             # iu => iou
+    - derive/uei$/$1ui/                # ui => uei
+    - derive/iou$/$1iu/                # iu => iou
     - derive/^iou$/you/                # 可以用 you 代替整體音節 iou
     # 契合漢語拼音的方式輸入 eng
     - derive/^neng$/nong/              # nong => neng
-    - derive/(.)ieng$/$1ing/           # ing => ieng
-    - derive/^ieng$/ying/              # 可以用 ying 代替整體音節 ieng
+    - derive/^ieng$/yieng/             # 可以用 yieng 代替整體音節 ieng
     - derive/(.)ueng$/$1ong/           # ong => ueng
     - derive/(.)yeng$/$1iong/          # iong => yeng
+    - derive/([iuy])eng$/$1ng/         # ing <=> ieng, ung <=> ueng, yng <=> yeng, ..
     # 模糊前後鼻音標記 n/ng
     - derive/(an)$/$1g/                # ang => an
-    - derive/([^iuy])eng$/$1en/        # en => eng, ..
-    - derive/(.)ie*ng$/$1in/            # in => ieng
-    - derive/(.)[yu]eng$/$1un/         # hun => hueng, jun => jyeng, ..
+    - derive/([eiuy])ng$/$1n/          # nen <=> neng, ..
     # 兼容兩種入聲韻尾 q/h
     - derive/([iuy]?)aq$/$1eq/         # beq => baq, kueq => kuaq, ..
-    - derive/([iuy])aq$/$1q/           # biq => biaq, ..
+    - derive/([iuy])aq$/$1q/           # biq => biaq, guq => guaq, jyq => jyaq, ..
+    - derive/([bpm])aq$/$1uq/          # buq => baq, ..
     - derive/^iaq$/yiq/                # 可以用 yiq 代替整體音節 iaq
     - derive/([aeiuy]?)q$/$1h/         # biah => biaq, ..
     # 簡拼

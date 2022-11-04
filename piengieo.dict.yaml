@@ -5,7 +5,7 @@
 #
 ---
 name: piengieo
-version: "2022.11.02"
+version: "2022.11.04"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:
@@ -704,7 +704,7 @@ import_tables:
 俟	siz
 斯	siz
 撕	siz
-廝	siz
+廝	siz	5%
 凘	siz
 施	siz
 匙	siz
@@ -853,7 +853,7 @@ import_tables:
 鵡	u
 戊	u
 
-沃	u
+沃	u	0%
 顧	u
 
 # bu
@@ -1628,8 +1628,7 @@ import_tables:
 萌	mia
 
 # nia
-娘	nia
-孃	nia
+孃	nia	5%
 
 牙	nia
 芽	nia
@@ -4721,6 +4720,8 @@ import_tables:
 漭	man
 尨	man
 厖	man
+
+媽	man
 
 # dan
 擔	dan
