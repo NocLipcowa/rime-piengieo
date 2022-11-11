@@ -4,7 +4,7 @@
 schema:
   schema_id: piengyeo_combo
   name: 平遙話拼音（並擊）
-  version: '0.2'
+  version: '0.3'
   author:
     - Skanda
   description: |
@@ -136,7 +136,7 @@ chord_composer:
     # 追加隔音符號
     - "xform/^(b)([iua]|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
     - "xform/^([pm])([iua]|ia|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
-    - "xform/^([dt])([iua]|i?eo|uo|ie|u?ae|u?ei|i?ou|u?an|u?eng|[iu]?aq)$/$1$2'/"
+    - "xform/^([dt])([iua]|i?eo|uo|ie|u?ae|u?ei|i?ou|u?an|[iu]?eng|[iu]?aq)$/$1$2'/"
     - "xform/^(n)([iay]|[iu]?a|i?eo|uo|[iay]e|u?ei|i?ou|[iu]?an|i?eng|[iy]?aq)$/$1$2'/"
     - "xform/^(l)([ia]|[iu]?a|i?eo|uo|[iy]e|u?ae|u?ei|i?ou|[iu]?an|[iu]?eng|[iuy]?aq)$/$1$2'/"
     - "xform/^([gk])([ua]|ua|[eu]o|ie|u?ae|uei|ou|u?an|u?eng|u?aq)$/$1$2'/"
@@ -223,28 +223,28 @@ pinyin_reverse_lookup:
   dictionary: *dict
   overwrite_comment: true
   comment_format: &comment
+    - xform/$/〕/
+    - xform/^/〔/
+    - xform/ /、/
     # 將晉拼方案轉換爲折中方案
     # 聲母
     - xform/c/q/                      # q <= c
     - xform/hs/x/                     # x <= hs
-    - xform/( |^)z/$1zs/              # zs <= z
+    - xform/(〔|、)z/$1zs/             # zs <= z
     - xform/ds/z/                     # z <= ds
     - xform/ts/c/                     # c <= ts
     - xform/dr/zh/                    # zh <= dr
     - xform/tr/ch/                    # ch <= tr
     - xform/sr/sh/                    # sh <= sr
     # 零聲母
-    - xform/( |^)u( |$)/$1wu$2/       # wu <= u
-    - xform/( |^)u([^ ])/$1w$2/       # weng <= weng, ..
-    - xform/( |^)y/$1yu/              # yu <= y, yuaq <= yaq, ..
-    - xform/( |^)(i(eng)?)( |$)/$1y$2$3/ # yi <= i, yieng <= ieng
-    - xform/( |^)i([^ ])/$1y$2/       # yah <= iah, ..
+    - xform/(〔|、)u(、|〕)/$1wu$2/    # wu <= u
+    - xform/(〔|、)u/$1w/             # weng <= ueng, ..
+    - xform/(〔|、)y/$1yu/            # yu <= y, yuaq <= yaq, ..
+    - xform/(〔|、)i(、|〕)/$1yi$2/    # yi <= i
+    - xform/(〔|、)ieng(、|〕)/$1yieng$2/ # yieng <= ieng
+    - xform/(〔|、)i/$1y/             # yah <= iah, ..
     # 韻母
-    - xform/([iu])z( |$)/$1$2/        # i <= iz, u <= uz
-
-    - xform/$/〕/
-    - xform/^/〔/
-    - xform/ /、/
+    - xform/([iu])z(、|〕)/$1$2/      # i <= iz, u <= uz
 
 punctuator:
   import_preset: default

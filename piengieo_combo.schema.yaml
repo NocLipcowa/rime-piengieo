@@ -4,7 +4,7 @@
 schema:
   schema_id: piengieo_combo
   name: 平遙話晉拼（並擊）
-  version: '0.2'
+  version: '0.3'
   author:
     - Skanda
   description: |
@@ -136,7 +136,7 @@ chord_composer:
     # 追加隔音符號
     - "xform/^(b)([iua]|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
     - "xform/^([pm])([iua]|ia|i?eo|[ia]e|ei|an|i?eng|i?aq)$/$1$2'/"
-    - "xform/^([dt])([iua]|i?eo|uo|ie|u?ae|u?ei|i?ou|u?an|u?eng|[iu]?aq)$/$1$2'/"
+    - "xform/^([dt])([iua]|i?eo|uo|ie|u?ae|u?ei|i?ou|u?an|[iu]?eng|[iu]?aq)$/$1$2'/"
     - "xform/^(n)([iay]|[iu]?a|i?eo|uo|[iay]e|u?ei|i?ou|[iu]?an|i?eng|[iy]?aq)$/$1$2'/"
     - "xform/^(l)([ia]|[iu]?a|i?eo|uo|[iy]e|u?ae|u?ei|i?ou|[iu]?an|[iu]?eng|[iuy]?aq)$/$1$2'/"
     - "xform/^([gk])([ua]|ua|[eu]o|ie|u?ae|uei|ou|u?an|u?eng|u?aq)$/$1$2'/"

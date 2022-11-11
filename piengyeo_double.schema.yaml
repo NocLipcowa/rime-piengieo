@@ -4,7 +4,7 @@
 schema:
   schema_id: piengyeo_double
   name: 平遙話拼音（雙拼）
-  version: '0.3'
+  version: '0.4'
   author:
     - Skanda
   description: |
@@ -188,28 +188,28 @@ pinyin_reverse_lookup:
   dictionary: *dict
   overwrite_comment: true
   comment_format: &comment
+    - xform/$/〕/
+    - xform/^/〔/
+    - xform/ /、/
     # 將晉拼方案轉換爲折中方案
     # 聲母
     - xform/c/q/                      # q <= c
     - xform/hs/x/                     # x <= hs
-    - xform/( |^)z/$1zs/              # zs <= z
+    - xform/(〔|、)z/$1zs/             # zs <= z
     - xform/ds/z/                     # z <= ds
     - xform/ts/c/                     # c <= ts
     - xform/dr/zh/                    # zh <= dr
     - xform/tr/ch/                    # ch <= tr
     - xform/sr/sh/                    # sh <= sr
     # 零聲母
-    - xform/( |^)u( |$)/$1wu$2/       # wu <= u
-    - xform/( |^)u([^ ])/$1w$2/       # weng <= weng, ..
-    - xform/( |^)y/$1yu/              # yu <= y, yuaq <= yaq, ..
-    - xform/( |^)(i(eng)?)( |$)/$1y$2$3/ # yi <= i, yieng <= ieng
-    - xform/( |^)i([^ ])/$1y$2/       # yah <= iah, ..
+    - xform/(〔|、)u(、|〕)/$1wu$2/    # wu <= u
+    - xform/(〔|、)u/$1w/             # weng <= ueng, ..
+    - xform/(〔|、)y/$1yu/            # yu <= y, yuaq <= yaq, ..
+    - xform/(〔|、)i(、|〕)/$1yi$2/    # yi <= i
+    - xform/(〔|、)ieng(、|〕)/$1yieng$2/ # yieng <= ieng
+    - xform/(〔|、)i/$1y/             # yah <= iah, ..
     # 韻母
-    - xform/([iu])z( |$)/$1$2/        # i <= iz, u <= uz
-
-    - xform/$/〕/
-    - xform/^/〔/
-    - xform/ /、/
+    - xform/([iu])z(、|〕)/$1$2/      # i <= iz, u <= uz
 
 punctuator:
   import_preset: default
